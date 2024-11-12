@@ -1,0 +1,134 @@
+Sub Saldenbestatigung()
+    Dim SapGuiAuto As Object
+    Dim SAPApp As Object
+    Dim SAPCon As Object
+    Dim session As Object
+    Dim SAPGuiSession As Object
+    Set SapGuiAuto = GetObject("SAPGUI")
+    Set SAPApp = SapGuiAuto.GetScriptingEngine
+    Set SAPCon = SAPApp.Children(0)
+    Set session = SAPCon.Children(0)
+
+Dim BP As String
+Dim CompanyCode As String
+
+     Dim ws As Worksheet
+    Set ws = ThisWorkbook.Sheets("Kunden")
+
+ID = ActiveWorkbook.ActiveSheet.Range("B1").Value
+CompanyCode = ActiveWorkbook.ActiveSheet.Range("E1").Value
+
+
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+
+session.findById("wnd[0]/tbar[0]/okcd").Text = "ZFCA0_1352"
+session.findById("wnd[0]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/usr/ctxtS_STDBK-LOW").Text = "0003"
+session.findById("wnd[0]/usr/ctxtS_STDBK-LOW").caretPosition = 4
+session.findById("wnd[0]/usr/btn%_S_STDBK_%_APP_%-VALU_PUSH").press
+session.findById("wnd[1]/tbar[0]/btn[16]").press
+If ActiveWorkbook.ActiveSheet.Range("E1").Value = "All MEE Relevant" Then
+
+session.findById("wnd[1]/usr/tabsTAB_STRIP/tabpSIVA/ssubSCREEN_HEADER:SAPLALDB:3010/tblSAPLALDBSINGLE/ctxtRSCSEL_255-SLOW_I[1,0]").Text = "0003"
+session.findById("wnd[1]/usr/tabsTAB_STRIP/tabpSIVA/ssubSCREEN_HEADER:SAPLALDB:3010/tblSAPLALDBSINGLE/ctxtRSCSEL_255-SLOW_I[1,1]").Text = "0002"
+session.findById("wnd[1]/usr/tabsTAB_STRIP/tabpSIVA/ssubSCREEN_HEADER:SAPLALDB:3010/tblSAPLALDBSINGLE/ctxtRSCSEL_255-SLOW_I[1,2]").Text = "0853"
+session.findById("wnd[1]/usr/tabsTAB_STRIP/tabpSIVA/ssubSCREEN_HEADER:SAPLALDB:3010/tblSAPLALDBSINGLE/ctxtRSCSEL_255-SLOW_I[1,3]").Text = "0023"
+session.findById("wnd[1]/usr/tabsTAB_STRIP/tabpSIVA/ssubSCREEN_HEADER:SAPLALDB:3010/tblSAPLALDBSINGLE/ctxtRSCSEL_255-SLOW_I[1,3]").caretPosition = 4
+
+Else:
+session.findById("wnd[1]/tbar[0]/btn[16]").press
+session.findById("wnd[1]/usr/tabsTAB_STRIP/tabpSIVA/ssubSCREEN_HEADER:SAPLALDB:3010/tblSAPLALDBSINGLE/ctxtRSCSEL_255-SLOW_I[1,0]").Text = CompanyCode
+End If
+
+session.findById("wnd[1]/tbar[0]/btn[8]").press
+session.findById("wnd[0]/usr/txtS_AGENT-LOW").Text = ID
+session.findById("wnd[0]/tbar[1]/btn[8]").press
+
+'layout
+session.findById("wnd[0]/tbar[1]/btn[33]").press
+session.findById("wnd[1]/usr/subSUB_CONFIGURATION:SAPLSALV_CUL_LAYOUT_CHOOSE:0500/cntlD500_CONTAINER/shellcont/shell").currentCellRow = -1
+session.findById("wnd[1]/usr/subSUB_CONFIGURATION:SAPLSALV_CUL_LAYOUT_CHOOSE:0500/cntlD500_CONTAINER/shellcont/shell").selectColumn "VARIANT"
+session.findById("wnd[1]/usr/subSUB_CONFIGURATION:SAPLSALV_CUL_LAYOUT_CHOOSE:0500/cntlD500_CONTAINER/shellcont/shell").selectedRows = ""
+session.findById("wnd[1]/usr/subSUB_CONFIGURATION:SAPLSALV_CUL_LAYOUT_CHOOSE:0500/cntlD500_CONTAINER/shellcont/shell").contextMenu
+session.findById("wnd[1]/usr/subSUB_CONFIGURATION:SAPLSALV_CUL_LAYOUT_CHOOSE:0500/cntlD500_CONTAINER/shellcont/shell").selectContextMenuItem "&FILTER"
+session.findById("wnd[2]/usr/ssub%_SUBSCREEN_FREESEL:SAPLSSEL:1105/ctxt%%DYN001-LOW").Text = "/MACRO RICH"
+session.findById("wnd[2]/usr/ssub%_SUBSCREEN_FREESEL:SAPLSSEL:1105/ctxt%%DYN001-LOW").caretPosition = 11
+session.findById("wnd[2]/tbar[0]/btn[0]").press
+session.findById("wnd[1]/usr/subSUB_CONFIGURATION:SAPLSALV_CUL_LAYOUT_CHOOSE:0500/cntlD500_CONTAINER/shellcont/shell").selectedRows = "0"
+session.findById("wnd[1]/usr/subSUB_CONFIGURATION:SAPLSALV_CUL_LAYOUT_CHOOSE:0500/cntlD500_CONTAINER/shellcont/shell").clickCurrentCell
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell").contextMenu
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell").selectContextMenuItem "&XXL"
+session.findById("wnd[1]/tbar[0]/btn[20]").press
+session.findById("wnd[1]/tbar[0]/btn[0]").press
+
+
+'Record the initial number of open workbooks
+    initialWorkbookCount = Application.Workbooks.Count
+    
+    ' Set the maximum wait time (10 seconds)
+    maxWaitTime = 10
+    startTime = Timer
+    
+    ' Wait until a new workbook is added or the time limit is reached
+    Do While Application.Workbooks.Count <= initialWorkbookCount
+        DoEvents  ' Allow Excel to process other events
+        If Timer > startTime + maxWaitTime Then
+            MsgBox "New workbook did not open within the expected time.", vbExclamation
+            Exit Sub
+        End If
+    Loop
+    
+    ' The new workbook is now the last one added
+    Set NewWorkbook = Application.Workbooks(Application.Workbooks.Count)
+    ' Activate the new workbook
+    NewWorkbook.Activate
+    
+    Dim rng As Range
+    Dim lastRow As Long
+    Dim i As Long
+    
+    ' Set the worksheet to the active sheet
+    Set ws = ActiveSheet
+    
+    
+     ' Set the "Kundenliste.xlsm" workbook and the "Kunden" sheet
+    Set opWorkbook = Workbooks("Kundenliste.xlsm")
+    Set opSheet = opWorkbook.Sheets("Kunden")
+    
+     ' Set the last active sheet
+    Set lastActiveSheet = ActiveSheet
+    
+        ' Identify the last used range in the last active sheet
+    Set lastUsedRange = lastActiveSheet.UsedRange
+    
+    ' Copy the last used range from the last active sheet
+    lastUsedRange.Copy
+    
+    ' Paste the copied range into cell A3 on the "Kundenliste" sheet
+    opSheet.Range("A3").PasteSpecial Paste:=xlPasteValues
+        
+    ' Clear the clipboard to remove the copied data
+    Application.CutCopyMode = False
+    
+    ' Close the last active sheet without saving changes
+    lastActiveSheet.Parent.Close SaveChanges:=False
+    
+    opWorkbook.Activate
+   Set opSheet = ActiveSheet
+        Columns("A:G").Select
+    ActiveSheet.Range("$A$1:$G$1000000").RemoveDuplicates Columns:=5, Header:=xlYes
+    ActiveWorkbook.Save
+    Range("A3").Select
+    
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+
+End Sub
+

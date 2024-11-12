@@ -1,0 +1,2023 @@
+Sub P2P()
+
+Dim SapGuiAuto As Object
+Dim SAPApp As Object
+Dim SAPCon As Object
+Dim session As Object
+Dim SAPGuiSession As Object
+
+' Initialize the SAP GUI Scripting objects
+Set SapGuiAuto = GetObject("SAPGUI")
+Set SAPApp = SapGuiAuto.GetScriptingEngine
+Set SAPCon = SAPApp.Children(0)
+Set session = SAPCon.Children(0)
+
+    Dim FilePath As String
+    Dim WshShell As Object
+    Set WshShell = CreateObject("WScript.Shell")
+FilePath = WshShell.SpecialFolders("Desktop") & "\avis.msg"
+Dim ReferenceNumber1 As String
+Dim ReferenceNumber2 As String
+Dim ReferenceNumber3 As String
+Dim ReferenceNumber4 As String
+Dim ReferenceNumber5 As String
+Dim ReferenceNumber6 As String
+Dim ReferenceNumber7 As String
+Dim ReferenceNumber8 As String
+Dim ReferenceNumber9 As String
+Dim ReferenceNumber10 As String
+Dim ReferenceNumber11 As String
+Dim ReferenceNumber12 As String
+Dim ReferenceNumber13 As String
+Dim ReferenceNumber14 As String
+Dim ReferenceNumber15 As String
+Dim ReferenceNumber16 As String
+Dim ReferenceNumber17 As String
+Dim ReferenceNumber18 As String
+Dim ReferenceNumber19 As String
+Dim ReferenceNumber20 As String
+Dim ReferenceNumber21 As String
+Dim ReferenceNumber22 As String
+Dim ReferenceNumber23 As String
+Dim ReferenceNumber24 As String
+Dim ReferenceNumber25 As String
+Dim ReferenceNumber26 As String
+Dim ReferenceNumber27 As String
+Dim ReferenceNumber28 As String
+Dim ReferenceNumber29 As String
+Dim ReferenceNumber30 As String
+Dim ReferenceNumber31 As String
+Dim ReferenceNumber32 As String
+Dim ReferenceNumber33 As String
+Dim ReferenceNumber34 As String
+Dim ReferenceNumber35 As String
+Dim ReferenceNumber36 As String
+Dim ReferenceNumber37 As String
+Dim ReferenceNumber38 As String
+Dim ReferenceNumber39 As String
+Dim ReferenceNumber40 As String
+Dim ReferenceNumber41 As String
+Dim ReferenceNumber42 As String
+Dim ReferenceNumber43 As String
+Dim ReferenceNumber44 As String
+Dim ReferenceNumber45 As String
+Dim ReferenceNumber46 As String
+Dim ReferenceNumber47 As String
+Dim ReferenceNumber48 As String
+Dim ReferenceNumber49 As String
+Dim ReferenceNumber50 As String
+Dim ReferenceNumber51 As String
+Dim ReferenceNumber52 As String
+Dim ReferenceNumber53 As String
+Dim ReferenceNumber54 As String
+Dim ReferenceNumber55 As String
+Dim ReferenceNumber56 As String
+Dim ReferenceNumber57 As String
+Dim ReferenceNumber58 As String
+Dim ReferenceNumber59 As String
+Dim ReferenceNumber60 As String
+Dim ReferenceNumber61 As String
+Dim ReferenceNumber62 As String
+Dim ReferenceNumber63 As String
+Dim ReferenceNumber64 As String
+Dim ReferenceNumber65 As String
+Dim ReferenceNumber66 As String
+Dim ReferenceNumber67 As String
+Dim ReferenceNumber68 As String
+Dim ReferenceNumber69 As String
+Dim ReferenceNumber70 As String
+Dim ReferenceNumber71 As String
+Dim ReferenceNumber72 As String
+Dim ReferenceNumber73 As String
+Dim ReferenceNumber74 As String
+Dim ReferenceNumber75 As String
+Dim ReferenceNumber76 As String
+Dim ReferenceNumber77 As String
+Dim ReferenceNumber78 As String
+Dim ReferenceNumber79 As String
+Dim ReferenceNumber80 As String
+Dim ReferenceNumber81 As String
+Dim ReferenceNumber82 As String
+Dim ReferenceNumber83 As String
+Dim ReferenceNumber84 As String
+Dim ReferenceNumber85 As String
+Dim ReferenceNumber86 As String
+Dim ReferenceNumber87 As String
+Dim ReferenceNumber88 As String
+Dim ReferenceNumber89 As String
+Dim ReferenceNumber90 As String
+Dim ReferenceNumber91 As String
+Dim ReferenceNumber92 As String
+Dim ReferenceNumber93 As String
+Dim ReferenceNumber94 As String
+Dim ReferenceNumber95 As String
+Dim ReferenceNumber96 As String
+Dim ReferenceNumber97 As String
+Dim ReferenceNumber98 As String
+Dim ReferenceNumber99 As String
+Dim ReferenceNumber100 As String
+Dim ReferenceNumber101 As String
+Dim ReferenceNumber102 As String
+Dim ReferenceNumber103 As String
+Dim ReferenceNumber104 As String
+Dim ReferenceNumber105 As String
+Dim ReferenceNumber106 As String
+Dim ReferenceNumber107 As String
+Dim ReferenceNumber108 As String
+Dim ReferenceNumber109 As String
+Dim ReferenceNumber110 As String
+Dim ReferenceNumber111 As String
+Dim ReferenceNumber112 As String
+Dim ReferenceNumber113 As String
+Dim ReferenceNumber114 As String
+Dim ReferenceNumber115 As String
+Dim ReferenceNumber116 As String
+Dim ReferenceNumber117 As String
+Dim ReferenceNumber118 As String
+Dim ReferenceNumber119 As String
+Dim ReferenceNumber120 As String
+Dim ReferenceNumber121 As String
+Dim ReferenceNumber122 As String
+Dim ReferenceNumber123 As String
+Dim ReferenceNumber124 As String
+Dim ReferenceNumber125 As String
+Dim ReferenceNumber126 As String
+Dim ReferenceNumber127 As String
+Dim ReferenceNumber128 As String
+Dim ReferenceNumber129 As String
+Dim ReferenceNumber130 As String
+Dim ReferenceNumber131 As String
+Dim ReferenceNumber132 As String
+Dim ReferenceNumber133 As String
+Dim ReferenceNumber134 As String
+Dim ReferenceNumber135 As String
+Dim ReferenceNumber136 As String
+Dim ReferenceNumber137 As String
+Dim ReferenceNumber138 As String
+Dim ReferenceNumber139 As String
+Dim ReferenceNumber140 As String
+Dim ReferenceNumber141 As String
+Dim ReferenceNumber142 As String
+Dim ReferenceNumber143 As String
+Dim ReferenceNumber144 As String
+Dim ReferenceNumber145 As String
+Dim ReferenceNumber146 As String
+Dim ReferenceNumber147 As String
+Dim ReferenceNumber148 As String
+Dim ReferenceNumber149 As String
+Dim ReferenceNumber150 As String
+Dim ReferenceNumber151 As String
+Dim ReferenceNumber152 As String
+Dim ReferenceNumber153 As String
+Dim ReferenceNumber154 As String
+Dim ReferenceNumber155 As String
+Dim ReferenceNumber156 As String
+Dim ReferenceNumber157 As String
+Dim ReferenceNumber158 As String
+Dim ReferenceNumber159 As String
+Dim ReferenceNumber160 As String
+Dim ReferenceNumber161 As String
+Dim ReferenceNumber162 As String
+Dim ReferenceNumber163 As String
+Dim ReferenceNumber164 As String
+Dim ReferenceNumber165 As String
+Dim ReferenceNumber166 As String
+Dim ReferenceNumber167 As String
+Dim ReferenceNumber168 As String
+Dim ReferenceNumber169 As String
+Dim ReferenceNumber170 As String
+Dim ReferenceNumber171 As String
+Dim ReferenceNumber172 As String
+Dim ReferenceNumber173 As String
+Dim ReferenceNumber174 As String
+Dim ReferenceNumber175 As String
+Dim ReferenceNumber176 As String
+Dim ReferenceNumber177 As String
+Dim ReferenceNumber178 As String
+Dim ReferenceNumber179 As String
+Dim ReferenceNumber180 As String
+Dim ReferenceNumber181 As String
+Dim ReferenceNumber182 As String
+Dim ReferenceNumber183 As String
+Dim ReferenceNumber184 As String
+Dim ReferenceNumber185 As String
+Dim ReferenceNumber186 As String
+Dim ReferenceNumber187 As String
+Dim ReferenceNumber188 As String
+Dim ReferenceNumber189 As String
+Dim ReferenceNumber190 As String
+Dim ReferenceNumber191 As String
+Dim ReferenceNumber192 As String
+Dim ReferenceNumber193 As String
+Dim ReferenceNumber194 As String
+Dim ReferenceNumber195 As String
+Dim ReferenceNumber196 As String
+Dim ReferenceNumber197 As String
+Dim ReferenceNumber198 As String
+Dim ReferenceNumber199 As String
+Dim ReferenceNumber200 As String
+Dim ReferenceNumber201 As String
+Dim ReferenceNumber202 As String
+Dim ReferenceNumber203 As String
+Dim ReferenceNumber204 As String
+Dim ReferenceNumber205 As String
+Dim ReferenceNumber206 As String
+Dim ReferenceNumber207 As String
+Dim ReferenceNumber208 As String
+Dim ReferenceNumber209 As String
+Dim ReferenceNumber210 As String
+Dim ReferenceNumber211 As String
+Dim ReferenceNumber212 As String
+Dim ReferenceNumber213 As String
+Dim ReferenceNumber214 As String
+Dim ReferenceNumber215 As String
+Dim ReferenceNumber216 As String
+Dim ReferenceNumber217 As String
+Dim ReferenceNumber218 As String
+Dim ReferenceNumber219 As String
+Dim ReferenceNumber220 As String
+Dim ReferenceNumber221 As String
+Dim ReferenceNumber222 As String
+Dim ReferenceNumber223 As String
+Dim ReferenceNumber224 As String
+Dim ReferenceNumber225 As String
+Dim ReferenceNumber226 As String
+Dim ReferenceNumber227 As String
+Dim ReferenceNumber228 As String
+Dim ReferenceNumber229 As String
+Dim ReferenceNumber230 As String
+Dim ReferenceNumber231 As String
+Dim ReferenceNumber232 As String
+Dim ReferenceNumber233 As String
+Dim ReferenceNumber234 As String
+Dim ReferenceNumber235 As String
+Dim ReferenceNumber236 As String
+Dim ReferenceNumber237 As String
+Dim ReferenceNumber238 As String
+Dim ReferenceNumber239 As String
+Dim ReferenceNumber240 As String
+Dim ReferenceNumber241 As String
+Dim ReferenceNumber242 As String
+Dim ReferenceNumber243 As String
+Dim ReferenceNumber244 As String
+Dim ReferenceNumber245 As String
+Dim ReferenceNumber246 As String
+Dim ReferenceNumber247 As String
+Dim ReferenceNumber248 As String
+Dim ReferenceNumber249 As String
+Dim ReferenceNumber250 As String
+Dim ReferenceNumber251 As String
+Dim ReferenceNumber252 As String
+Dim ReferenceNumber253 As String
+Dim ReferenceNumber254 As String
+Dim ReferenceNumber255 As String
+Dim ReferenceNumber256 As String
+Dim ReferenceNumber257 As String
+Dim ReferenceNumber258 As String
+Dim ReferenceNumber259 As String
+Dim ReferenceNumber260 As String
+Dim ReferenceNumber261 As String
+Dim ReferenceNumber262 As String
+Dim ReferenceNumber263 As String
+Dim ReferenceNumber264 As String
+Dim ReferenceNumber265 As String
+Dim ReferenceNumber266 As String
+Dim ReferenceNumber267 As String
+Dim ReferenceNumber268 As String
+Dim ReferenceNumber269 As String
+Dim ReferenceNumber270 As String
+Dim ReferenceNumber271 As String
+Dim ReferenceNumber272 As String
+Dim ReferenceNumber273 As String
+Dim ReferenceNumber274 As String
+Dim ReferenceNumber275 As String
+Dim ReferenceNumber276 As String
+Dim ReferenceNumber277 As String
+Dim ReferenceNumber278 As String
+Dim ReferenceNumber279 As String
+Dim ReferenceNumber280 As String
+Dim ReferenceNumber281 As String
+Dim ReferenceNumber282 As String
+Dim ReferenceNumber283 As String
+Dim ReferenceNumber284 As String
+Dim ReferenceNumber285 As String
+Dim ReferenceNumber286 As String
+Dim ReferenceNumber287 As String
+Dim ReferenceNumber288 As String
+Dim ReferenceNumber289 As String
+Dim ReferenceNumber290 As String
+Dim ReferenceNumber291 As String
+Dim ReferenceNumber292 As String
+Dim ReferenceNumber293 As String
+Dim ReferenceNumber294 As String
+Dim ReferenceNumber295 As String
+Dim ReferenceNumber296 As String
+Dim ReferenceNumber297 As String
+Dim ReferenceNumber298 As String
+Dim ReferenceNumber299 As String
+Dim ReferenceNumber300 As String
+Dim ReferenceNumber301 As String
+Dim ReferenceNumber302 As String
+Dim ReferenceNumber303 As String
+Dim ReferenceNumber304 As String
+Dim ReferenceNumber305 As String
+Dim ReferenceNumber306 As String
+Dim ReferenceNumber307 As String
+Dim ReferenceNumber308 As String
+Dim ReferenceNumber309 As String
+Dim ReferenceNumber310 As String
+Dim ReferenceNumber311 As String
+Dim ReferenceNumber312 As String
+Dim ReferenceNumber313 As String
+Dim ReferenceNumber314 As String
+Dim ReferenceNumber315 As String
+Dim ReferenceNumber316 As String
+Dim ReferenceNumber317 As String
+Dim ReferenceNumber318 As String
+Dim ReferenceNumber319 As String
+Dim ReferenceNumber320 As String
+Dim ReferenceNumber321 As String
+Dim ReferenceNumber322 As String
+Dim ReferenceNumber323 As String
+Dim ReferenceNumber324 As String
+Dim ReferenceNumber325 As String
+Dim ReferenceNumber326 As String
+Dim ReferenceNumber327 As String
+Dim ReferenceNumber328 As String
+Dim ReferenceNumber329 As String
+Dim ReferenceNumber330 As String
+Dim ReferenceNumber331 As String
+Dim ReferenceNumber332 As String
+Dim ReferenceNumber333 As String
+Dim ReferenceNumber334 As String
+Dim ReferenceNumber335 As String
+Dim ReferenceNumber336 As String
+Dim ReferenceNumber337 As String
+Dim ReferenceNumber338 As String
+Dim ReferenceNumber339 As String
+Dim ReferenceNumber340 As String
+Dim ReferenceNumber341 As String
+Dim ReferenceNumber342 As String
+Dim ReferenceNumber343 As String
+Dim ReferenceNumber344 As String
+Dim ReferenceNumber345 As String
+Dim ReferenceNumber346 As String
+Dim ReferenceNumber347 As String
+Dim ReferenceNumber348 As String
+Dim ReferenceNumber349 As String
+Dim ReferenceNumber350 As String
+Dim ReferenceNumber351 As String
+Dim ReferenceNumber352 As String
+Dim ReferenceNumber353 As String
+Dim ReferenceNumber354 As String
+Dim ReferenceNumber355 As String
+Dim ReferenceNumber356 As String
+Dim ReferenceNumber357 As String
+Dim ReferenceNumber358 As String
+Dim ReferenceNumber359 As String
+Dim ReferenceNumber360 As String
+Dim ReferenceNumber361 As String
+Dim ReferenceNumber362 As String
+Dim ReferenceNumber363 As String
+Dim ReferenceNumber364 As String
+Dim ReferenceNumber365 As String
+Dim ReferenceNumber366 As String
+Dim ReferenceNumber367 As String
+Dim ReferenceNumber368 As String
+Dim ReferenceNumber369 As String
+Dim ReferenceNumber370 As String
+Dim ReferenceNumber371 As String
+Dim ReferenceNumber372 As String
+Dim ReferenceNumber373 As String
+Dim ReferenceNumber374 As String
+Dim ReferenceNumber375 As String
+Dim ReferenceNumber376 As String
+Dim ReferenceNumber377 As String
+Dim ReferenceNumber378 As String
+Dim ReferenceNumber379 As String
+Dim ReferenceNumber380 As String
+Dim ReferenceNumber381 As String
+Dim ReferenceNumber382 As String
+Dim ReferenceNumber383 As String
+Dim ReferenceNumber384 As String
+Dim ReferenceNumber385 As String
+Dim ReferenceNumber386 As String
+Dim ReferenceNumber387 As String
+Dim ReferenceNumber388 As String
+Dim ReferenceNumber389 As String
+Dim ReferenceNumber390 As String
+Dim ReferenceNumber391 As String
+Dim ReferenceNumber392 As String
+Dim ReferenceNumber393 As String
+Dim ReferenceNumber394 As String
+Dim ReferenceNumber395 As String
+Dim ReferenceNumber396 As String
+Dim ReferenceNumber397 As String
+Dim ReferenceNumber398 As String
+Dim ReferenceNumber399 As String
+Dim ReferenceNumber400 As String
+Dim ReferenceNumber401 As String
+Dim ReferenceNumber402 As String
+Dim ReferenceNumber403 As String
+Dim ReferenceNumber404 As String
+Dim ReferenceNumber405 As String
+Dim ReferenceNumber406 As String
+Dim ReferenceNumber407 As String
+Dim ReferenceNumber408 As String
+Dim ReferenceNumber409 As String
+Dim ReferenceNumber410 As String
+Dim ReferenceNumber411 As String
+Dim ReferenceNumber412 As String
+Dim ReferenceNumber413 As String
+Dim ReferenceNumber414 As String
+Dim ReferenceNumber415 As String
+Dim ReferenceNumber416 As String
+Dim ReferenceNumber417 As String
+Dim ReferenceNumber418 As String
+Dim ReferenceNumber419 As String
+Dim ReferenceNumber420 As String
+Dim ReferenceNumber421 As String
+Dim ReferenceNumber422 As String
+Dim ReferenceNumber423 As String
+Dim ReferenceNumber424 As String
+Dim ReferenceNumber425 As String
+Dim ReferenceNumber426 As String
+Dim ReferenceNumber427 As String
+Dim ReferenceNumber428 As String
+Dim ReferenceNumber429 As String
+Dim ReferenceNumber430 As String
+Dim ReferenceNumber431 As String
+Dim ReferenceNumber432 As String
+Dim ReferenceNumber433 As String
+Dim ReferenceNumber434 As String
+Dim ReferenceNumber435 As String
+Dim ReferenceNumber436 As String
+Dim ReferenceNumber437 As String
+Dim ReferenceNumber438 As String
+Dim ReferenceNumber439 As String
+Dim ReferenceNumber440 As String
+Dim ReferenceNumber441 As String
+Dim ReferenceNumber442 As String
+Dim ReferenceNumber443 As String
+Dim ReferenceNumber444 As String
+Dim ReferenceNumber445 As String
+Dim ReferenceNumber446 As String
+Dim ReferenceNumber447 As String
+Dim ReferenceNumber448 As String
+Dim ReferenceNumber449 As String
+Dim ReferenceNumber450 As String
+Dim ReferenceNumber451 As String
+Dim ReferenceNumber452 As String
+Dim ReferenceNumber453 As String
+Dim ReferenceNumber454 As String
+Dim ReferenceNumber455 As String
+Dim ReferenceNumber456 As String
+Dim ReferenceNumber457 As String
+Dim ReferenceNumber458 As String
+Dim ReferenceNumber459 As String
+Dim ReferenceNumber460 As String
+Dim ReferenceNumber461 As String
+Dim ReferenceNumber462 As String
+Dim ReferenceNumber463 As String
+Dim ReferenceNumber464 As String
+Dim ReferenceNumber465 As String
+Dim ReferenceNumber466 As String
+Dim ReferenceNumber467 As String
+Dim ReferenceNumber468 As String
+Dim ReferenceNumber469 As String
+Dim ReferenceNumber470 As String
+Dim ReferenceNumber471 As String
+Dim ReferenceNumber472 As String
+Dim ReferenceNumber473 As String
+Dim ReferenceNumber474 As String
+Dim ReferenceNumber475 As String
+Dim ReferenceNumber476 As String
+Dim ReferenceNumber477 As String
+Dim ReferenceNumber478 As String
+Dim ReferenceNumber479 As String
+Dim ReferenceNumber480 As String
+Dim ReferenceNumber481 As String
+Dim ReferenceNumber482 As String
+Dim ReferenceNumber483 As String
+Dim ReferenceNumber484 As String
+Dim ReferenceNumber485 As String
+Dim ReferenceNumber486 As String
+Dim ReferenceNumber487 As String
+Dim ReferenceNumber488 As String
+Dim ReferenceNumber489 As String
+Dim ReferenceNumber490 As String
+Dim ReferenceNumber491 As String
+Dim ReferenceNumber492 As String
+Dim ReferenceNumber493 As String
+Dim ReferenceNumber494 As String
+Dim ReferenceNumber495 As String
+Dim ReferenceNumber496 As String
+Dim ReferenceNumber497 As String
+Dim ReferenceNumber498 As String
+Dim ReferenceNumber499 As String
+Dim ReferenceNumber500 As String
+
+Dim DateOfAvis As String
+Dim SupplierNr As String
+Dim Dateofpmt As String
+Dim valueToCopy As String
+Dim rng As Range
+Dim desktop As String
+Dim Curr As String
+
+
+desktop = ActiveWorkbook.ActiveSheet.Range("F2").Value
+Dateofpmt = ActiveWorkbook.ActiveSheet.Range("B5").Value
+SupplierNr = ActiveWorkbook.ActiveSheet.Range("C2").Value
+DateOfAvis = ActiveWorkbook.ActiveSheet.Range("B4").Value
+ReferenceNumber1 = ActiveWorkbook.ActiveSheet.Range("A2").Value
+ReferenceNumber2 = ActiveWorkbook.ActiveSheet.Range("A3").Value
+ReferenceNumber3 = ActiveWorkbook.ActiveSheet.Range("A4").Value
+ReferenceNumber4 = ActiveWorkbook.ActiveSheet.Range("A5").Value
+ReferenceNumber5 = ActiveWorkbook.ActiveSheet.Range("A6").Value
+ReferenceNumber6 = ActiveWorkbook.ActiveSheet.Range("A7").Value
+ReferenceNumber7 = ActiveWorkbook.ActiveSheet.Range("A8").Value
+ReferenceNumber8 = ActiveWorkbook.ActiveSheet.Range("A9").Value
+ReferenceNumber9 = ActiveWorkbook.ActiveSheet.Range("A10").Value
+ReferenceNumber10 = ActiveWorkbook.ActiveSheet.Range("A11").Value
+ReferenceNumber11 = ActiveWorkbook.ActiveSheet.Range("A12").Value
+ReferenceNumber12 = ActiveWorkbook.ActiveSheet.Range("A13").Value
+ReferenceNumber13 = ActiveWorkbook.ActiveSheet.Range("A14").Value
+ReferenceNumber14 = ActiveWorkbook.ActiveSheet.Range("A15").Value
+ReferenceNumber15 = ActiveWorkbook.ActiveSheet.Range("A16").Value
+ReferenceNumber16 = ActiveWorkbook.ActiveSheet.Range("A17").Value
+ReferenceNumber17 = ActiveWorkbook.ActiveSheet.Range("A18").Value
+ReferenceNumber18 = ActiveWorkbook.ActiveSheet.Range("A19").Value
+ReferenceNumber19 = ActiveWorkbook.ActiveSheet.Range("A20").Value
+ReferenceNumber20 = ActiveWorkbook.ActiveSheet.Range("A21").Value
+ReferenceNumber21 = ActiveWorkbook.ActiveSheet.Range("A22").Value
+ReferenceNumber22 = ActiveWorkbook.ActiveSheet.Range("A23").Value
+ReferenceNumber23 = ActiveWorkbook.ActiveSheet.Range("A24").Value
+ReferenceNumber24 = ActiveWorkbook.ActiveSheet.Range("A25").Value
+ReferenceNumber25 = ActiveWorkbook.ActiveSheet.Range("A26").Value
+ReferenceNumber26 = ActiveWorkbook.ActiveSheet.Range("A27").Value
+ReferenceNumber27 = ActiveWorkbook.ActiveSheet.Range("A28").Value
+ReferenceNumber28 = ActiveWorkbook.ActiveSheet.Range("A29").Value
+ReferenceNumber29 = ActiveWorkbook.ActiveSheet.Range("A30").Value
+ReferenceNumber30 = ActiveWorkbook.ActiveSheet.Range("A31").Value
+ReferenceNumber31 = ActiveWorkbook.ActiveSheet.Range("A32").Value
+ReferenceNumber32 = ActiveWorkbook.ActiveSheet.Range("A33").Value
+ReferenceNumber33 = ActiveWorkbook.ActiveSheet.Range("A34").Value
+ReferenceNumber34 = ActiveWorkbook.ActiveSheet.Range("A35").Value
+ReferenceNumber35 = ActiveWorkbook.ActiveSheet.Range("A36").Value
+ReferenceNumber36 = ActiveWorkbook.ActiveSheet.Range("A37").Value
+ReferenceNumber37 = ActiveWorkbook.ActiveSheet.Range("A38").Value
+ReferenceNumber38 = ActiveWorkbook.ActiveSheet.Range("A39").Value
+ReferenceNumber39 = ActiveWorkbook.ActiveSheet.Range("A40").Value
+ReferenceNumber40 = ActiveWorkbook.ActiveSheet.Range("A41").Value
+ReferenceNumber41 = ActiveWorkbook.ActiveSheet.Range("A42").Value
+ReferenceNumber42 = ActiveWorkbook.ActiveSheet.Range("A43").Value
+ReferenceNumber43 = ActiveWorkbook.ActiveSheet.Range("A44").Value
+ReferenceNumber44 = ActiveWorkbook.ActiveSheet.Range("A45").Value
+ReferenceNumber45 = ActiveWorkbook.ActiveSheet.Range("A46").Value
+ReferenceNumber46 = ActiveWorkbook.ActiveSheet.Range("A47").Value
+ReferenceNumber47 = ActiveWorkbook.ActiveSheet.Range("A48").Value
+ReferenceNumber48 = ActiveWorkbook.ActiveSheet.Range("A49").Value
+ReferenceNumber49 = ActiveWorkbook.ActiveSheet.Range("A50").Value
+ReferenceNumber50 = ActiveWorkbook.ActiveSheet.Range("A51").Value
+ReferenceNumber51 = ActiveWorkbook.ActiveSheet.Range("A52").Value
+ReferenceNumber52 = ActiveWorkbook.ActiveSheet.Range("A53").Value
+ReferenceNumber53 = ActiveWorkbook.ActiveSheet.Range("A54").Value
+ReferenceNumber54 = ActiveWorkbook.ActiveSheet.Range("A55").Value
+ReferenceNumber55 = ActiveWorkbook.ActiveSheet.Range("A56").Value
+ReferenceNumber56 = ActiveWorkbook.ActiveSheet.Range("A57").Value
+ReferenceNumber57 = ActiveWorkbook.ActiveSheet.Range("A58").Value
+ReferenceNumber58 = ActiveWorkbook.ActiveSheet.Range("A59").Value
+ReferenceNumber59 = ActiveWorkbook.ActiveSheet.Range("A60").Value
+ReferenceNumber60 = ActiveWorkbook.ActiveSheet.Range("A61").Value
+ReferenceNumber61 = ActiveWorkbook.ActiveSheet.Range("A62").Value
+ReferenceNumber62 = ActiveWorkbook.ActiveSheet.Range("A63").Value
+ReferenceNumber63 = ActiveWorkbook.ActiveSheet.Range("A64").Value
+ReferenceNumber64 = ActiveWorkbook.ActiveSheet.Range("A65").Value
+ReferenceNumber65 = ActiveWorkbook.ActiveSheet.Range("A66").Value
+ReferenceNumber66 = ActiveWorkbook.ActiveSheet.Range("A67").Value
+ReferenceNumber67 = ActiveWorkbook.ActiveSheet.Range("A68").Value
+ReferenceNumber68 = ActiveWorkbook.ActiveSheet.Range("A69").Value
+ReferenceNumber69 = ActiveWorkbook.ActiveSheet.Range("A70").Value
+ReferenceNumber70 = ActiveWorkbook.ActiveSheet.Range("A71").Value
+ReferenceNumber71 = ActiveWorkbook.ActiveSheet.Range("A72").Value
+ReferenceNumber72 = ActiveWorkbook.ActiveSheet.Range("A73").Value
+ReferenceNumber73 = ActiveWorkbook.ActiveSheet.Range("A74").Value
+ReferenceNumber74 = ActiveWorkbook.ActiveSheet.Range("A75").Value
+ReferenceNumber75 = ActiveWorkbook.ActiveSheet.Range("A76").Value
+ReferenceNumber76 = ActiveWorkbook.ActiveSheet.Range("A77").Value
+ReferenceNumber77 = ActiveWorkbook.ActiveSheet.Range("A78").Value
+ReferenceNumber78 = ActiveWorkbook.ActiveSheet.Range("A79").Value
+ReferenceNumber79 = ActiveWorkbook.ActiveSheet.Range("A80").Value
+ReferenceNumber80 = ActiveWorkbook.ActiveSheet.Range("A81").Value
+ReferenceNumber81 = ActiveWorkbook.ActiveSheet.Range("A82").Value
+ReferenceNumber82 = ActiveWorkbook.ActiveSheet.Range("A83").Value
+ReferenceNumber83 = ActiveWorkbook.ActiveSheet.Range("A84").Value
+ReferenceNumber84 = ActiveWorkbook.ActiveSheet.Range("A85").Value
+ReferenceNumber85 = ActiveWorkbook.ActiveSheet.Range("A86").Value
+ReferenceNumber86 = ActiveWorkbook.ActiveSheet.Range("A87").Value
+ReferenceNumber87 = ActiveWorkbook.ActiveSheet.Range("A88").Value
+ReferenceNumber88 = ActiveWorkbook.ActiveSheet.Range("A89").Value
+ReferenceNumber89 = ActiveWorkbook.ActiveSheet.Range("A90").Value
+ReferenceNumber90 = ActiveWorkbook.ActiveSheet.Range("A91").Value
+ReferenceNumber91 = ActiveWorkbook.ActiveSheet.Range("A92").Value
+ReferenceNumber92 = ActiveWorkbook.ActiveSheet.Range("A93").Value
+ReferenceNumber93 = ActiveWorkbook.ActiveSheet.Range("A94").Value
+ReferenceNumber94 = ActiveWorkbook.ActiveSheet.Range("A95").Value
+ReferenceNumber95 = ActiveWorkbook.ActiveSheet.Range("A96").Value
+ReferenceNumber96 = ActiveWorkbook.ActiveSheet.Range("A97").Value
+ReferenceNumber97 = ActiveWorkbook.ActiveSheet.Range("A98").Value
+ReferenceNumber98 = ActiveWorkbook.ActiveSheet.Range("A99").Value
+ReferenceNumber99 = ActiveWorkbook.ActiveSheet.Range("A100").Value
+ReferenceNumber100 = ActiveWorkbook.ActiveSheet.Range("A101").Value
+ReferenceNumber101 = ActiveWorkbook.ActiveSheet.Range("A102").Value
+ReferenceNumber102 = ActiveWorkbook.ActiveSheet.Range("A103").Value
+ReferenceNumber103 = ActiveWorkbook.ActiveSheet.Range("A104").Value
+ReferenceNumber104 = ActiveWorkbook.ActiveSheet.Range("A105").Value
+ReferenceNumber105 = ActiveWorkbook.ActiveSheet.Range("A106").Value
+ReferenceNumber106 = ActiveWorkbook.ActiveSheet.Range("A107").Value
+ReferenceNumber107 = ActiveWorkbook.ActiveSheet.Range("A108").Value
+ReferenceNumber108 = ActiveWorkbook.ActiveSheet.Range("A109").Value
+ReferenceNumber109 = ActiveWorkbook.ActiveSheet.Range("A110").Value
+ReferenceNumber110 = ActiveWorkbook.ActiveSheet.Range("A111").Value
+ReferenceNumber111 = ActiveWorkbook.ActiveSheet.Range("A112").Value
+ReferenceNumber112 = ActiveWorkbook.ActiveSheet.Range("A113").Value
+ReferenceNumber113 = ActiveWorkbook.ActiveSheet.Range("A114").Value
+ReferenceNumber114 = ActiveWorkbook.ActiveSheet.Range("A115").Value
+ReferenceNumber115 = ActiveWorkbook.ActiveSheet.Range("A116").Value
+ReferenceNumber116 = ActiveWorkbook.ActiveSheet.Range("A117").Value
+ReferenceNumber117 = ActiveWorkbook.ActiveSheet.Range("A118").Value
+ReferenceNumber118 = ActiveWorkbook.ActiveSheet.Range("A119").Value
+ReferenceNumber119 = ActiveWorkbook.ActiveSheet.Range("A120").Value
+ReferenceNumber120 = ActiveWorkbook.ActiveSheet.Range("A121").Value
+ReferenceNumber121 = ActiveWorkbook.ActiveSheet.Range("A122").Value
+ReferenceNumber122 = ActiveWorkbook.ActiveSheet.Range("A123").Value
+ReferenceNumber123 = ActiveWorkbook.ActiveSheet.Range("A124").Value
+ReferenceNumber124 = ActiveWorkbook.ActiveSheet.Range("A125").Value
+ReferenceNumber125 = ActiveWorkbook.ActiveSheet.Range("A126").Value
+ReferenceNumber126 = ActiveWorkbook.ActiveSheet.Range("A127").Value
+ReferenceNumber127 = ActiveWorkbook.ActiveSheet.Range("A128").Value
+ReferenceNumber128 = ActiveWorkbook.ActiveSheet.Range("A129").Value
+ReferenceNumber129 = ActiveWorkbook.ActiveSheet.Range("A130").Value
+ReferenceNumber130 = ActiveWorkbook.ActiveSheet.Range("A131").Value
+ReferenceNumber131 = ActiveWorkbook.ActiveSheet.Range("A132").Value
+ReferenceNumber132 = ActiveWorkbook.ActiveSheet.Range("A133").Value
+ReferenceNumber133 = ActiveWorkbook.ActiveSheet.Range("A134").Value
+ReferenceNumber134 = ActiveWorkbook.ActiveSheet.Range("A135").Value
+ReferenceNumber135 = ActiveWorkbook.ActiveSheet.Range("A136").Value
+ReferenceNumber136 = ActiveWorkbook.ActiveSheet.Range("A137").Value
+ReferenceNumber137 = ActiveWorkbook.ActiveSheet.Range("A138").Value
+ReferenceNumber138 = ActiveWorkbook.ActiveSheet.Range("A139").Value
+ReferenceNumber139 = ActiveWorkbook.ActiveSheet.Range("A140").Value
+ReferenceNumber140 = ActiveWorkbook.ActiveSheet.Range("A141").Value
+ReferenceNumber141 = ActiveWorkbook.ActiveSheet.Range("A142").Value
+ReferenceNumber142 = ActiveWorkbook.ActiveSheet.Range("A143").Value
+ReferenceNumber143 = ActiveWorkbook.ActiveSheet.Range("A144").Value
+ReferenceNumber144 = ActiveWorkbook.ActiveSheet.Range("A145").Value
+ReferenceNumber145 = ActiveWorkbook.ActiveSheet.Range("A146").Value
+ReferenceNumber146 = ActiveWorkbook.ActiveSheet.Range("A147").Value
+ReferenceNumber147 = ActiveWorkbook.ActiveSheet.Range("A148").Value
+ReferenceNumber148 = ActiveWorkbook.ActiveSheet.Range("A149").Value
+ReferenceNumber149 = ActiveWorkbook.ActiveSheet.Range("A150").Value
+ReferenceNumber150 = ActiveWorkbook.ActiveSheet.Range("A151").Value
+ReferenceNumber151 = ActiveWorkbook.ActiveSheet.Range("A152").Value
+ReferenceNumber152 = ActiveWorkbook.ActiveSheet.Range("A153").Value
+ReferenceNumber153 = ActiveWorkbook.ActiveSheet.Range("A154").Value
+ReferenceNumber154 = ActiveWorkbook.ActiveSheet.Range("A155").Value
+ReferenceNumber155 = ActiveWorkbook.ActiveSheet.Range("A156").Value
+ReferenceNumber156 = ActiveWorkbook.ActiveSheet.Range("A157").Value
+ReferenceNumber157 = ActiveWorkbook.ActiveSheet.Range("A158").Value
+ReferenceNumber158 = ActiveWorkbook.ActiveSheet.Range("A159").Value
+ReferenceNumber159 = ActiveWorkbook.ActiveSheet.Range("A160").Value
+ReferenceNumber160 = ActiveWorkbook.ActiveSheet.Range("A161").Value
+ReferenceNumber161 = ActiveWorkbook.ActiveSheet.Range("A162").Value
+ReferenceNumber162 = ActiveWorkbook.ActiveSheet.Range("A163").Value
+ReferenceNumber163 = ActiveWorkbook.ActiveSheet.Range("A164").Value
+ReferenceNumber164 = ActiveWorkbook.ActiveSheet.Range("A165").Value
+ReferenceNumber165 = ActiveWorkbook.ActiveSheet.Range("A166").Value
+ReferenceNumber166 = ActiveWorkbook.ActiveSheet.Range("A167").Value
+ReferenceNumber167 = ActiveWorkbook.ActiveSheet.Range("A168").Value
+ReferenceNumber168 = ActiveWorkbook.ActiveSheet.Range("A169").Value
+ReferenceNumber169 = ActiveWorkbook.ActiveSheet.Range("A170").Value
+ReferenceNumber170 = ActiveWorkbook.ActiveSheet.Range("A171").Value
+ReferenceNumber171 = ActiveWorkbook.ActiveSheet.Range("A172").Value
+ReferenceNumber172 = ActiveWorkbook.ActiveSheet.Range("A173").Value
+ReferenceNumber173 = ActiveWorkbook.ActiveSheet.Range("A174").Value
+ReferenceNumber174 = ActiveWorkbook.ActiveSheet.Range("A175").Value
+ReferenceNumber175 = ActiveWorkbook.ActiveSheet.Range("A176").Value
+ReferenceNumber176 = ActiveWorkbook.ActiveSheet.Range("A177").Value
+ReferenceNumber177 = ActiveWorkbook.ActiveSheet.Range("A178").Value
+ReferenceNumber178 = ActiveWorkbook.ActiveSheet.Range("A179").Value
+ReferenceNumber179 = ActiveWorkbook.ActiveSheet.Range("A180").Value
+ReferenceNumber180 = ActiveWorkbook.ActiveSheet.Range("A181").Value
+ReferenceNumber181 = ActiveWorkbook.ActiveSheet.Range("A182").Value
+ReferenceNumber182 = ActiveWorkbook.ActiveSheet.Range("A183").Value
+ReferenceNumber183 = ActiveWorkbook.ActiveSheet.Range("A184").Value
+ReferenceNumber184 = ActiveWorkbook.ActiveSheet.Range("A185").Value
+ReferenceNumber185 = ActiveWorkbook.ActiveSheet.Range("A186").Value
+ReferenceNumber186 = ActiveWorkbook.ActiveSheet.Range("A187").Value
+ReferenceNumber187 = ActiveWorkbook.ActiveSheet.Range("A188").Value
+ReferenceNumber188 = ActiveWorkbook.ActiveSheet.Range("A189").Value
+ReferenceNumber189 = ActiveWorkbook.ActiveSheet.Range("A190").Value
+ReferenceNumber190 = ActiveWorkbook.ActiveSheet.Range("A191").Value
+ReferenceNumber191 = ActiveWorkbook.ActiveSheet.Range("A192").Value
+ReferenceNumber192 = ActiveWorkbook.ActiveSheet.Range("A193").Value
+ReferenceNumber193 = ActiveWorkbook.ActiveSheet.Range("A194").Value
+ReferenceNumber194 = ActiveWorkbook.ActiveSheet.Range("A195").Value
+ReferenceNumber195 = ActiveWorkbook.ActiveSheet.Range("A196").Value
+ReferenceNumber196 = ActiveWorkbook.ActiveSheet.Range("A197").Value
+ReferenceNumber197 = ActiveWorkbook.ActiveSheet.Range("A198").Value
+ReferenceNumber198 = ActiveWorkbook.ActiveSheet.Range("A199").Value
+ReferenceNumber199 = ActiveWorkbook.ActiveSheet.Range("A200").Value
+ReferenceNumber200 = ActiveWorkbook.ActiveSheet.Range("A201").Value
+ReferenceNumber201 = ActiveWorkbook.ActiveSheet.Range("A202").Value
+ReferenceNumber202 = ActiveWorkbook.ActiveSheet.Range("A203").Value
+ReferenceNumber203 = ActiveWorkbook.ActiveSheet.Range("A204").Value
+ReferenceNumber204 = ActiveWorkbook.ActiveSheet.Range("A205").Value
+ReferenceNumber205 = ActiveWorkbook.ActiveSheet.Range("A206").Value
+ReferenceNumber206 = ActiveWorkbook.ActiveSheet.Range("A207").Value
+ReferenceNumber207 = ActiveWorkbook.ActiveSheet.Range("A208").Value
+ReferenceNumber208 = ActiveWorkbook.ActiveSheet.Range("A209").Value
+ReferenceNumber209 = ActiveWorkbook.ActiveSheet.Range("A210").Value
+ReferenceNumber210 = ActiveWorkbook.ActiveSheet.Range("A211").Value
+ReferenceNumber211 = ActiveWorkbook.ActiveSheet.Range("A212").Value
+ReferenceNumber212 = ActiveWorkbook.ActiveSheet.Range("A213").Value
+ReferenceNumber213 = ActiveWorkbook.ActiveSheet.Range("A214").Value
+ReferenceNumber214 = ActiveWorkbook.ActiveSheet.Range("A215").Value
+ReferenceNumber215 = ActiveWorkbook.ActiveSheet.Range("A216").Value
+ReferenceNumber216 = ActiveWorkbook.ActiveSheet.Range("A217").Value
+ReferenceNumber217 = ActiveWorkbook.ActiveSheet.Range("A218").Value
+ReferenceNumber218 = ActiveWorkbook.ActiveSheet.Range("A219").Value
+ReferenceNumber219 = ActiveWorkbook.ActiveSheet.Range("A220").Value
+ReferenceNumber220 = ActiveWorkbook.ActiveSheet.Range("A221").Value
+ReferenceNumber221 = ActiveWorkbook.ActiveSheet.Range("A222").Value
+ReferenceNumber222 = ActiveWorkbook.ActiveSheet.Range("A223").Value
+ReferenceNumber223 = ActiveWorkbook.ActiveSheet.Range("A224").Value
+ReferenceNumber224 = ActiveWorkbook.ActiveSheet.Range("A225").Value
+ReferenceNumber225 = ActiveWorkbook.ActiveSheet.Range("A226").Value
+ReferenceNumber226 = ActiveWorkbook.ActiveSheet.Range("A227").Value
+ReferenceNumber227 = ActiveWorkbook.ActiveSheet.Range("A228").Value
+ReferenceNumber228 = ActiveWorkbook.ActiveSheet.Range("A229").Value
+ReferenceNumber229 = ActiveWorkbook.ActiveSheet.Range("A230").Value
+ReferenceNumber230 = ActiveWorkbook.ActiveSheet.Range("A231").Value
+ReferenceNumber231 = ActiveWorkbook.ActiveSheet.Range("A232").Value
+ReferenceNumber232 = ActiveWorkbook.ActiveSheet.Range("A233").Value
+ReferenceNumber233 = ActiveWorkbook.ActiveSheet.Range("A234").Value
+ReferenceNumber234 = ActiveWorkbook.ActiveSheet.Range("A235").Value
+ReferenceNumber235 = ActiveWorkbook.ActiveSheet.Range("A236").Value
+ReferenceNumber236 = ActiveWorkbook.ActiveSheet.Range("A237").Value
+ReferenceNumber237 = ActiveWorkbook.ActiveSheet.Range("A238").Value
+ReferenceNumber238 = ActiveWorkbook.ActiveSheet.Range("A239").Value
+ReferenceNumber239 = ActiveWorkbook.ActiveSheet.Range("A240").Value
+ReferenceNumber240 = ActiveWorkbook.ActiveSheet.Range("A241").Value
+ReferenceNumber241 = ActiveWorkbook.ActiveSheet.Range("A242").Value
+ReferenceNumber242 = ActiveWorkbook.ActiveSheet.Range("A243").Value
+ReferenceNumber243 = ActiveWorkbook.ActiveSheet.Range("A244").Value
+ReferenceNumber244 = ActiveWorkbook.ActiveSheet.Range("A245").Value
+ReferenceNumber245 = ActiveWorkbook.ActiveSheet.Range("A246").Value
+ReferenceNumber246 = ActiveWorkbook.ActiveSheet.Range("A247").Value
+ReferenceNumber247 = ActiveWorkbook.ActiveSheet.Range("A248").Value
+ReferenceNumber248 = ActiveWorkbook.ActiveSheet.Range("A249").Value
+ReferenceNumber249 = ActiveWorkbook.ActiveSheet.Range("A250").Value
+ReferenceNumber250 = ActiveWorkbook.ActiveSheet.Range("A251").Value
+ReferenceNumber251 = ActiveWorkbook.ActiveSheet.Range("A252").Value
+ReferenceNumber252 = ActiveWorkbook.ActiveSheet.Range("A253").Value
+ReferenceNumber253 = ActiveWorkbook.ActiveSheet.Range("A254").Value
+ReferenceNumber254 = ActiveWorkbook.ActiveSheet.Range("A255").Value
+ReferenceNumber255 = ActiveWorkbook.ActiveSheet.Range("A256").Value
+ReferenceNumber256 = ActiveWorkbook.ActiveSheet.Range("A257").Value
+ReferenceNumber257 = ActiveWorkbook.ActiveSheet.Range("A258").Value
+ReferenceNumber258 = ActiveWorkbook.ActiveSheet.Range("A259").Value
+ReferenceNumber259 = ActiveWorkbook.ActiveSheet.Range("A260").Value
+ReferenceNumber260 = ActiveWorkbook.ActiveSheet.Range("A261").Value
+ReferenceNumber261 = ActiveWorkbook.ActiveSheet.Range("A262").Value
+ReferenceNumber262 = ActiveWorkbook.ActiveSheet.Range("A263").Value
+ReferenceNumber263 = ActiveWorkbook.ActiveSheet.Range("A264").Value
+ReferenceNumber264 = ActiveWorkbook.ActiveSheet.Range("A265").Value
+ReferenceNumber265 = ActiveWorkbook.ActiveSheet.Range("A266").Value
+ReferenceNumber266 = ActiveWorkbook.ActiveSheet.Range("A267").Value
+ReferenceNumber267 = ActiveWorkbook.ActiveSheet.Range("A268").Value
+ReferenceNumber268 = ActiveWorkbook.ActiveSheet.Range("A269").Value
+ReferenceNumber269 = ActiveWorkbook.ActiveSheet.Range("A270").Value
+ReferenceNumber270 = ActiveWorkbook.ActiveSheet.Range("A271").Value
+ReferenceNumber271 = ActiveWorkbook.ActiveSheet.Range("A272").Value
+ReferenceNumber272 = ActiveWorkbook.ActiveSheet.Range("A273").Value
+ReferenceNumber273 = ActiveWorkbook.ActiveSheet.Range("A274").Value
+ReferenceNumber274 = ActiveWorkbook.ActiveSheet.Range("A275").Value
+ReferenceNumber275 = ActiveWorkbook.ActiveSheet.Range("A276").Value
+ReferenceNumber276 = ActiveWorkbook.ActiveSheet.Range("A277").Value
+ReferenceNumber277 = ActiveWorkbook.ActiveSheet.Range("A278").Value
+ReferenceNumber278 = ActiveWorkbook.ActiveSheet.Range("A279").Value
+ReferenceNumber279 = ActiveWorkbook.ActiveSheet.Range("A280").Value
+ReferenceNumber280 = ActiveWorkbook.ActiveSheet.Range("A281").Value
+ReferenceNumber281 = ActiveWorkbook.ActiveSheet.Range("A282").Value
+ReferenceNumber282 = ActiveWorkbook.ActiveSheet.Range("A283").Value
+ReferenceNumber283 = ActiveWorkbook.ActiveSheet.Range("A284").Value
+ReferenceNumber284 = ActiveWorkbook.ActiveSheet.Range("A285").Value
+ReferenceNumber285 = ActiveWorkbook.ActiveSheet.Range("A286").Value
+ReferenceNumber286 = ActiveWorkbook.ActiveSheet.Range("A287").Value
+ReferenceNumber287 = ActiveWorkbook.ActiveSheet.Range("A288").Value
+ReferenceNumber288 = ActiveWorkbook.ActiveSheet.Range("A289").Value
+ReferenceNumber289 = ActiveWorkbook.ActiveSheet.Range("A290").Value
+ReferenceNumber290 = ActiveWorkbook.ActiveSheet.Range("A291").Value
+ReferenceNumber291 = ActiveWorkbook.ActiveSheet.Range("A292").Value
+ReferenceNumber292 = ActiveWorkbook.ActiveSheet.Range("A293").Value
+ReferenceNumber293 = ActiveWorkbook.ActiveSheet.Range("A294").Value
+ReferenceNumber294 = ActiveWorkbook.ActiveSheet.Range("A295").Value
+ReferenceNumber295 = ActiveWorkbook.ActiveSheet.Range("A296").Value
+ReferenceNumber296 = ActiveWorkbook.ActiveSheet.Range("A297").Value
+ReferenceNumber297 = ActiveWorkbook.ActiveSheet.Range("A298").Value
+ReferenceNumber298 = ActiveWorkbook.ActiveSheet.Range("A299").Value
+ReferenceNumber299 = ActiveWorkbook.ActiveSheet.Range("A300").Value
+ReferenceNumber300 = ActiveWorkbook.ActiveSheet.Range("A301").Value
+ReferenceNumber301 = ActiveWorkbook.ActiveSheet.Range("A302").Value
+ReferenceNumber302 = ActiveWorkbook.ActiveSheet.Range("A303").Value
+ReferenceNumber303 = ActiveWorkbook.ActiveSheet.Range("A304").Value
+ReferenceNumber304 = ActiveWorkbook.ActiveSheet.Range("A305").Value
+ReferenceNumber305 = ActiveWorkbook.ActiveSheet.Range("A306").Value
+ReferenceNumber306 = ActiveWorkbook.ActiveSheet.Range("A307").Value
+ReferenceNumber307 = ActiveWorkbook.ActiveSheet.Range("A308").Value
+ReferenceNumber308 = ActiveWorkbook.ActiveSheet.Range("A309").Value
+ReferenceNumber309 = ActiveWorkbook.ActiveSheet.Range("A310").Value
+ReferenceNumber310 = ActiveWorkbook.ActiveSheet.Range("A311").Value
+ReferenceNumber311 = ActiveWorkbook.ActiveSheet.Range("A312").Value
+ReferenceNumber312 = ActiveWorkbook.ActiveSheet.Range("A313").Value
+ReferenceNumber313 = ActiveWorkbook.ActiveSheet.Range("A314").Value
+ReferenceNumber314 = ActiveWorkbook.ActiveSheet.Range("A315").Value
+ReferenceNumber315 = ActiveWorkbook.ActiveSheet.Range("A316").Value
+ReferenceNumber316 = ActiveWorkbook.ActiveSheet.Range("A317").Value
+ReferenceNumber317 = ActiveWorkbook.ActiveSheet.Range("A318").Value
+ReferenceNumber318 = ActiveWorkbook.ActiveSheet.Range("A319").Value
+ReferenceNumber319 = ActiveWorkbook.ActiveSheet.Range("A320").Value
+ReferenceNumber320 = ActiveWorkbook.ActiveSheet.Range("A321").Value
+ReferenceNumber321 = ActiveWorkbook.ActiveSheet.Range("A322").Value
+ReferenceNumber322 = ActiveWorkbook.ActiveSheet.Range("A323").Value
+ReferenceNumber323 = ActiveWorkbook.ActiveSheet.Range("A324").Value
+ReferenceNumber324 = ActiveWorkbook.ActiveSheet.Range("A325").Value
+ReferenceNumber325 = ActiveWorkbook.ActiveSheet.Range("A326").Value
+ReferenceNumber326 = ActiveWorkbook.ActiveSheet.Range("A327").Value
+ReferenceNumber327 = ActiveWorkbook.ActiveSheet.Range("A328").Value
+ReferenceNumber328 = ActiveWorkbook.ActiveSheet.Range("A329").Value
+ReferenceNumber329 = ActiveWorkbook.ActiveSheet.Range("A330").Value
+ReferenceNumber330 = ActiveWorkbook.ActiveSheet.Range("A331").Value
+ReferenceNumber331 = ActiveWorkbook.ActiveSheet.Range("A332").Value
+ReferenceNumber332 = ActiveWorkbook.ActiveSheet.Range("A333").Value
+ReferenceNumber333 = ActiveWorkbook.ActiveSheet.Range("A334").Value
+ReferenceNumber334 = ActiveWorkbook.ActiveSheet.Range("A335").Value
+ReferenceNumber335 = ActiveWorkbook.ActiveSheet.Range("A336").Value
+ReferenceNumber336 = ActiveWorkbook.ActiveSheet.Range("A337").Value
+ReferenceNumber337 = ActiveWorkbook.ActiveSheet.Range("A338").Value
+ReferenceNumber338 = ActiveWorkbook.ActiveSheet.Range("A339").Value
+ReferenceNumber339 = ActiveWorkbook.ActiveSheet.Range("A340").Value
+ReferenceNumber340 = ActiveWorkbook.ActiveSheet.Range("A341").Value
+ReferenceNumber341 = ActiveWorkbook.ActiveSheet.Range("A342").Value
+ReferenceNumber342 = ActiveWorkbook.ActiveSheet.Range("A343").Value
+ReferenceNumber343 = ActiveWorkbook.ActiveSheet.Range("A344").Value
+ReferenceNumber344 = ActiveWorkbook.ActiveSheet.Range("A345").Value
+ReferenceNumber345 = ActiveWorkbook.ActiveSheet.Range("A346").Value
+ReferenceNumber346 = ActiveWorkbook.ActiveSheet.Range("A347").Value
+ReferenceNumber347 = ActiveWorkbook.ActiveSheet.Range("A348").Value
+ReferenceNumber348 = ActiveWorkbook.ActiveSheet.Range("A349").Value
+ReferenceNumber349 = ActiveWorkbook.ActiveSheet.Range("A350").Value
+ReferenceNumber350 = ActiveWorkbook.ActiveSheet.Range("A351").Value
+ReferenceNumber351 = ActiveWorkbook.ActiveSheet.Range("A352").Value
+ReferenceNumber352 = ActiveWorkbook.ActiveSheet.Range("A353").Value
+ReferenceNumber353 = ActiveWorkbook.ActiveSheet.Range("A354").Value
+ReferenceNumber354 = ActiveWorkbook.ActiveSheet.Range("A355").Value
+ReferenceNumber355 = ActiveWorkbook.ActiveSheet.Range("A356").Value
+ReferenceNumber356 = ActiveWorkbook.ActiveSheet.Range("A357").Value
+ReferenceNumber357 = ActiveWorkbook.ActiveSheet.Range("A358").Value
+ReferenceNumber358 = ActiveWorkbook.ActiveSheet.Range("A359").Value
+ReferenceNumber359 = ActiveWorkbook.ActiveSheet.Range("A360").Value
+ReferenceNumber360 = ActiveWorkbook.ActiveSheet.Range("A361").Value
+ReferenceNumber361 = ActiveWorkbook.ActiveSheet.Range("A362").Value
+ReferenceNumber362 = ActiveWorkbook.ActiveSheet.Range("A363").Value
+ReferenceNumber363 = ActiveWorkbook.ActiveSheet.Range("A364").Value
+ReferenceNumber364 = ActiveWorkbook.ActiveSheet.Range("A365").Value
+ReferenceNumber365 = ActiveWorkbook.ActiveSheet.Range("A366").Value
+ReferenceNumber366 = ActiveWorkbook.ActiveSheet.Range("A367").Value
+ReferenceNumber367 = ActiveWorkbook.ActiveSheet.Range("A368").Value
+ReferenceNumber368 = ActiveWorkbook.ActiveSheet.Range("A369").Value
+ReferenceNumber369 = ActiveWorkbook.ActiveSheet.Range("A370").Value
+ReferenceNumber370 = ActiveWorkbook.ActiveSheet.Range("A371").Value
+ReferenceNumber371 = ActiveWorkbook.ActiveSheet.Range("A372").Value
+ReferenceNumber372 = ActiveWorkbook.ActiveSheet.Range("A373").Value
+ReferenceNumber373 = ActiveWorkbook.ActiveSheet.Range("A374").Value
+ReferenceNumber374 = ActiveWorkbook.ActiveSheet.Range("A375").Value
+ReferenceNumber375 = ActiveWorkbook.ActiveSheet.Range("A376").Value
+ReferenceNumber376 = ActiveWorkbook.ActiveSheet.Range("A377").Value
+ReferenceNumber377 = ActiveWorkbook.ActiveSheet.Range("A378").Value
+ReferenceNumber378 = ActiveWorkbook.ActiveSheet.Range("A379").Value
+ReferenceNumber379 = ActiveWorkbook.ActiveSheet.Range("A380").Value
+ReferenceNumber380 = ActiveWorkbook.ActiveSheet.Range("A381").Value
+ReferenceNumber381 = ActiveWorkbook.ActiveSheet.Range("A382").Value
+ReferenceNumber382 = ActiveWorkbook.ActiveSheet.Range("A383").Value
+ReferenceNumber383 = ActiveWorkbook.ActiveSheet.Range("A384").Value
+ReferenceNumber384 = ActiveWorkbook.ActiveSheet.Range("A385").Value
+ReferenceNumber385 = ActiveWorkbook.ActiveSheet.Range("A386").Value
+ReferenceNumber386 = ActiveWorkbook.ActiveSheet.Range("A387").Value
+ReferenceNumber387 = ActiveWorkbook.ActiveSheet.Range("A388").Value
+ReferenceNumber388 = ActiveWorkbook.ActiveSheet.Range("A389").Value
+ReferenceNumber389 = ActiveWorkbook.ActiveSheet.Range("A390").Value
+ReferenceNumber390 = ActiveWorkbook.ActiveSheet.Range("A391").Value
+ReferenceNumber391 = ActiveWorkbook.ActiveSheet.Range("A392").Value
+ReferenceNumber392 = ActiveWorkbook.ActiveSheet.Range("A393").Value
+ReferenceNumber393 = ActiveWorkbook.ActiveSheet.Range("A394").Value
+ReferenceNumber394 = ActiveWorkbook.ActiveSheet.Range("A395").Value
+ReferenceNumber395 = ActiveWorkbook.ActiveSheet.Range("A396").Value
+ReferenceNumber396 = ActiveWorkbook.ActiveSheet.Range("A397").Value
+ReferenceNumber397 = ActiveWorkbook.ActiveSheet.Range("A398").Value
+ReferenceNumber398 = ActiveWorkbook.ActiveSheet.Range("A399").Value
+ReferenceNumber399 = ActiveWorkbook.ActiveSheet.Range("A400").Value
+ReferenceNumber400 = ActiveWorkbook.ActiveSheet.Range("A401").Value
+ReferenceNumber401 = ActiveWorkbook.ActiveSheet.Range("A402").Value
+ReferenceNumber402 = ActiveWorkbook.ActiveSheet.Range("A403").Value
+ReferenceNumber403 = ActiveWorkbook.ActiveSheet.Range("A404").Value
+ReferenceNumber404 = ActiveWorkbook.ActiveSheet.Range("A405").Value
+ReferenceNumber405 = ActiveWorkbook.ActiveSheet.Range("A406").Value
+ReferenceNumber406 = ActiveWorkbook.ActiveSheet.Range("A407").Value
+ReferenceNumber407 = ActiveWorkbook.ActiveSheet.Range("A408").Value
+ReferenceNumber408 = ActiveWorkbook.ActiveSheet.Range("A409").Value
+ReferenceNumber409 = ActiveWorkbook.ActiveSheet.Range("A410").Value
+ReferenceNumber410 = ActiveWorkbook.ActiveSheet.Range("A411").Value
+ReferenceNumber411 = ActiveWorkbook.ActiveSheet.Range("A412").Value
+ReferenceNumber412 = ActiveWorkbook.ActiveSheet.Range("A413").Value
+ReferenceNumber413 = ActiveWorkbook.ActiveSheet.Range("A414").Value
+ReferenceNumber414 = ActiveWorkbook.ActiveSheet.Range("A415").Value
+ReferenceNumber415 = ActiveWorkbook.ActiveSheet.Range("A416").Value
+ReferenceNumber416 = ActiveWorkbook.ActiveSheet.Range("A417").Value
+ReferenceNumber417 = ActiveWorkbook.ActiveSheet.Range("A418").Value
+ReferenceNumber418 = ActiveWorkbook.ActiveSheet.Range("A419").Value
+ReferenceNumber419 = ActiveWorkbook.ActiveSheet.Range("A420").Value
+ReferenceNumber420 = ActiveWorkbook.ActiveSheet.Range("A421").Value
+ReferenceNumber421 = ActiveWorkbook.ActiveSheet.Range("A422").Value
+ReferenceNumber422 = ActiveWorkbook.ActiveSheet.Range("A423").Value
+ReferenceNumber423 = ActiveWorkbook.ActiveSheet.Range("A424").Value
+ReferenceNumber424 = ActiveWorkbook.ActiveSheet.Range("A425").Value
+ReferenceNumber425 = ActiveWorkbook.ActiveSheet.Range("A426").Value
+ReferenceNumber426 = ActiveWorkbook.ActiveSheet.Range("A427").Value
+ReferenceNumber427 = ActiveWorkbook.ActiveSheet.Range("A428").Value
+ReferenceNumber428 = ActiveWorkbook.ActiveSheet.Range("A429").Value
+ReferenceNumber429 = ActiveWorkbook.ActiveSheet.Range("A430").Value
+ReferenceNumber430 = ActiveWorkbook.ActiveSheet.Range("A431").Value
+ReferenceNumber431 = ActiveWorkbook.ActiveSheet.Range("A432").Value
+ReferenceNumber432 = ActiveWorkbook.ActiveSheet.Range("A433").Value
+ReferenceNumber433 = ActiveWorkbook.ActiveSheet.Range("A434").Value
+ReferenceNumber434 = ActiveWorkbook.ActiveSheet.Range("A435").Value
+ReferenceNumber435 = ActiveWorkbook.ActiveSheet.Range("A436").Value
+ReferenceNumber436 = ActiveWorkbook.ActiveSheet.Range("A437").Value
+ReferenceNumber437 = ActiveWorkbook.ActiveSheet.Range("A438").Value
+ReferenceNumber438 = ActiveWorkbook.ActiveSheet.Range("A439").Value
+ReferenceNumber439 = ActiveWorkbook.ActiveSheet.Range("A440").Value
+ReferenceNumber440 = ActiveWorkbook.ActiveSheet.Range("A441").Value
+ReferenceNumber441 = ActiveWorkbook.ActiveSheet.Range("A442").Value
+ReferenceNumber442 = ActiveWorkbook.ActiveSheet.Range("A443").Value
+ReferenceNumber443 = ActiveWorkbook.ActiveSheet.Range("A444").Value
+ReferenceNumber444 = ActiveWorkbook.ActiveSheet.Range("A445").Value
+ReferenceNumber445 = ActiveWorkbook.ActiveSheet.Range("A446").Value
+ReferenceNumber446 = ActiveWorkbook.ActiveSheet.Range("A447").Value
+ReferenceNumber447 = ActiveWorkbook.ActiveSheet.Range("A448").Value
+ReferenceNumber448 = ActiveWorkbook.ActiveSheet.Range("A449").Value
+ReferenceNumber449 = ActiveWorkbook.ActiveSheet.Range("A450").Value
+ReferenceNumber450 = ActiveWorkbook.ActiveSheet.Range("A451").Value
+ReferenceNumber451 = ActiveWorkbook.ActiveSheet.Range("A452").Value
+ReferenceNumber452 = ActiveWorkbook.ActiveSheet.Range("A453").Value
+ReferenceNumber453 = ActiveWorkbook.ActiveSheet.Range("A454").Value
+ReferenceNumber454 = ActiveWorkbook.ActiveSheet.Range("A455").Value
+ReferenceNumber455 = ActiveWorkbook.ActiveSheet.Range("A456").Value
+ReferenceNumber456 = ActiveWorkbook.ActiveSheet.Range("A457").Value
+ReferenceNumber457 = ActiveWorkbook.ActiveSheet.Range("A458").Value
+ReferenceNumber458 = ActiveWorkbook.ActiveSheet.Range("A459").Value
+ReferenceNumber459 = ActiveWorkbook.ActiveSheet.Range("A460").Value
+ReferenceNumber460 = ActiveWorkbook.ActiveSheet.Range("A461").Value
+ReferenceNumber461 = ActiveWorkbook.ActiveSheet.Range("A462").Value
+ReferenceNumber462 = ActiveWorkbook.ActiveSheet.Range("A463").Value
+ReferenceNumber463 = ActiveWorkbook.ActiveSheet.Range("A464").Value
+ReferenceNumber464 = ActiveWorkbook.ActiveSheet.Range("A465").Value
+ReferenceNumber465 = ActiveWorkbook.ActiveSheet.Range("A466").Value
+ReferenceNumber466 = ActiveWorkbook.ActiveSheet.Range("A467").Value
+ReferenceNumber467 = ActiveWorkbook.ActiveSheet.Range("A468").Value
+ReferenceNumber468 = ActiveWorkbook.ActiveSheet.Range("A469").Value
+ReferenceNumber469 = ActiveWorkbook.ActiveSheet.Range("A470").Value
+ReferenceNumber470 = ActiveWorkbook.ActiveSheet.Range("A471").Value
+ReferenceNumber471 = ActiveWorkbook.ActiveSheet.Range("A472").Value
+ReferenceNumber472 = ActiveWorkbook.ActiveSheet.Range("A473").Value
+ReferenceNumber473 = ActiveWorkbook.ActiveSheet.Range("A474").Value
+ReferenceNumber474 = ActiveWorkbook.ActiveSheet.Range("A475").Value
+ReferenceNumber475 = ActiveWorkbook.ActiveSheet.Range("A476").Value
+ReferenceNumber476 = ActiveWorkbook.ActiveSheet.Range("A477").Value
+ReferenceNumber477 = ActiveWorkbook.ActiveSheet.Range("A478").Value
+ReferenceNumber478 = ActiveWorkbook.ActiveSheet.Range("A479").Value
+ReferenceNumber479 = ActiveWorkbook.ActiveSheet.Range("A480").Value
+ReferenceNumber480 = ActiveWorkbook.ActiveSheet.Range("A481").Value
+ReferenceNumber481 = ActiveWorkbook.ActiveSheet.Range("A482").Value
+ReferenceNumber482 = ActiveWorkbook.ActiveSheet.Range("A483").Value
+ReferenceNumber483 = ActiveWorkbook.ActiveSheet.Range("A484").Value
+ReferenceNumber484 = ActiveWorkbook.ActiveSheet.Range("A485").Value
+ReferenceNumber485 = ActiveWorkbook.ActiveSheet.Range("A486").Value
+ReferenceNumber486 = ActiveWorkbook.ActiveSheet.Range("A487").Value
+ReferenceNumber487 = ActiveWorkbook.ActiveSheet.Range("A488").Value
+ReferenceNumber488 = ActiveWorkbook.ActiveSheet.Range("A489").Value
+ReferenceNumber489 = ActiveWorkbook.ActiveSheet.Range("A490").Value
+ReferenceNumber490 = ActiveWorkbook.ActiveSheet.Range("A491").Value
+ReferenceNumber491 = ActiveWorkbook.ActiveSheet.Range("A492").Value
+ReferenceNumber492 = ActiveWorkbook.ActiveSheet.Range("A493").Value
+ReferenceNumber493 = ActiveWorkbook.ActiveSheet.Range("A494").Value
+ReferenceNumber494 = ActiveWorkbook.ActiveSheet.Range("A495").Value
+ReferenceNumber495 = ActiveWorkbook.ActiveSheet.Range("A496").Value
+ReferenceNumber496 = ActiveWorkbook.ActiveSheet.Range("A497").Value
+ReferenceNumber497 = ActiveWorkbook.ActiveSheet.Range("A498").Value
+ReferenceNumber498 = ActiveWorkbook.ActiveSheet.Range("A499").Value
+ReferenceNumber499 = ActiveWorkbook.ActiveSheet.Range("A500").Value
+ReferenceNumber500 = ActiveWorkbook.ActiveSheet.Range("A501").Value
+Dim CompCode As String
+
+ dateadjust
+ 
+Curr = ActiveWorkbook.ActiveSheet.Range("F2").Value
+
+'question box
+   Dim userResponse As VbMsgBoxResult
+    
+    ' Display a message box with Yes and No options
+    userResponse = MsgBox("Please check if all yellow cells are filled out correctly and there is a file called avis.msg on your desktop", vbYesNo + vbQuestion, "User Confirmation")
+    
+    ' Check the user's response
+    If userResponse = vbYes Then
+        ' If the user clicked Yes, proceed with the macro
+        MsgBox "Thank you ;)", vbInformation
+        
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/okcd").Text = "FPE3"
+session.findById("wnd[0]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/usr/txtRFPE1-XBLNR").Text = ReferenceNumber1
+session.findById("wnd[0]/usr/txtRFPE1-OPORD").Text = ""
+session.findById("wnd[0]/usr/ctxtRFPE1-OPBEL").Text = ""
+session.findById("wnd[0]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").selectedRows = ""
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").clickCurrentCell
+'add layout confirmation
+
+On Error GoTo Error1
+    textToCopy = session.findById("wnd[0]/usr/tblSAPLFKPSCTRL_0705_OP/txtFPE3_OP-GPART[3,0]").Text
+    CompCode = session.findById("wnd[0]/usr/tblSAPLFKPSCTRL_0705_OP/ctxtFPE3_OP-BUKRS[0,0]").Text
+    On Error GoTo 0
+Resume1:
+On Error GoTo 0
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/okcd").Text = "FP2P1"
+session.findById("wnd[0]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/usr/ctxtRFKP2P-GPART").Text = textToCopy
+session.findById("wnd[0]/usr/ctxtRFKP2P-BUKRS").Text = ""
+session.findById("wnd[0]/usr/btnPUSH_CREA").press
+'dostat se do create payment promise
+
+'uvnitr promise to pay
+session.findById("wnd[0]/usr/ctxtRFKP2P-PRCUR").Text = Curr
+session.findById("wnd[0]/usr/ctxtRFKP2P-BUKRS_NEW").Text = CompCode
+session.findById("wnd[0]/tbar[1]/btn[8]").press
+
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_DARS").press
+session.findById("wnd[1]/usr/chkRFKB4-XFISV").Selected = True
+session.findById("wnd[1]/usr/cmbRFKB4-ANZVA").Key = "Z01"
+session.findById("wnd[1]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_SODS").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,0]").SetFocus
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_SU").press
+session.findById("wnd[1]/tbar[0]/btn[5]").press
+
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber1
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber2
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber3
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber4
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber5
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber6
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber7
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber8
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber9
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber10
+If ReferenceNumber11 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber11
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber12
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber13
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber14
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber15
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber16
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber17
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber18
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber19
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber20
+End If
+If ReferenceNumber21 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber21
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber22
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber23
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber24
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber25
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber26
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber27
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber28
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber29
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber30
+End If
+If ReferenceNumber31 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber31
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber32
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber33
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber44
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber55
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber66
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber77
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber88
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber99
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber110
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_MF").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_PA").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_ML").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_SUR").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,1]").SetFocus
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,1]").caretPosition = 10
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_SODS").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,0]").SetFocus
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,0]").caretPosition = 8
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_SU").press
+session.findById("wnd[1]/tbar[0]/btn[5]").press
+session.findById("wnd[2]/tbar[0]/btn[80]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber121
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber132
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber143
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber154
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber165
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber176
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber187
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber198
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber209
+End If
+If ReferenceNumber220 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber220
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber231
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber242
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber253
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber264
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber275
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber286
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber297
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber308
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber319
+End If
+If ReferenceNumber330 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber330
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber341
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber352
+End If
+If ReferenceNumber34 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber34
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber35
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber36
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber37
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber38
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber39
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber40
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber41
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber42
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber43
+End If
+If ReferenceNumber45 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_MF").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_PA").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_ML").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_SUR").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,1]").SetFocus
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,1]").caretPosition = 10
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_SODS").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,0]").SetFocus
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,0]").caretPosition = 8
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_SU").press
+session.findById("wnd[1]/tbar[0]/btn[5]").press
+session.findById("wnd[2]/tbar[0]/btn[80]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber45
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber46
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber47
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber48
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber49
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber50
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber51
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber52
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber53
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber54
+End If
+If ReferenceNumber56 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber56
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber57
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber58
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber59
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber60
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber61
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber62
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber63
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber64
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber65
+End If
+If ReferenceNumber67 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber67
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber68
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber69
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber70
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber71
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber72
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber73
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber74
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber75
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber76
+End If
+If ReferenceNumber78 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber78
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber79
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber80
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber81
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber82
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber83
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber84
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber85
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber86
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber87
+End If
+If ReferenceNumber89 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_MF").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_PA").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_ML").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_SUR").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,1]").SetFocus
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,1]").caretPosition = 10
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_SODS").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,0]").SetFocus
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,0]").caretPosition = 8
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_SU").press
+session.findById("wnd[1]/tbar[0]/btn[5]").press
+session.findById("wnd[2]/tbar[0]/btn[80]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber89
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber90
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber91
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber92
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber93
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber94
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber95
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber96
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber97
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber98
+End If
+If ReferenceNumber100 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber100
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber101
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber102
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber103
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber104
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber105
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber106
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber107
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber108
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber109
+End If
+If ReferenceNumber111 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber111
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber112
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber113
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber114
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber115
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber116
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber117
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber118
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber119
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber120
+End If
+If ReferenceNumber122 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber122
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber123
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber124
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber125
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber126
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber127
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber128
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber129
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber130
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber131
+End If
+If ReferenceNumber133 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_MF").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_PA").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_ML").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_SUR").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,1]").SetFocus
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,1]").caretPosition = 10
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_SODS").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,0]").SetFocus
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,0]").caretPosition = 8
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_SU").press
+session.findById("wnd[1]/tbar[0]/btn[5]").press
+session.findById("wnd[2]/tbar[0]/btn[80]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber133
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber134
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber135
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber136
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber137
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber138
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber139
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber140
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber141
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber142
+End If
+If ReferenceNumber144 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber144
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber145
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber146
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber147
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber148
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber149
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber150
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber151
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber152
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber153
+End If
+If ReferenceNumber155 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber155
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber156
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber157
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber158
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber159
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber160
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber161
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber162
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber163
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber164
+End If
+If ReferenceNumber166 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber166
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber167
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber168
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber169
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber170
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber171
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber172
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber173
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber174
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber175
+End If
+If ReferenceNumber177 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_MF").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_PA").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_ML").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_SUR").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,1]").SetFocus
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,1]").caretPosition = 10
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_SODS").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,0]").SetFocus
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,0]").caretPosition = 8
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_SU").press
+session.findById("wnd[1]/tbar[0]/btn[5]").press
+session.findById("wnd[2]/tbar[0]/btn[80]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber177
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber178
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber179
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber180
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber181
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber182
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber183
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber184
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber185
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber186
+End If
+If ReferenceNumber188 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber188
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber189
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber190
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber191
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber192
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber193
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber194
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber195
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber196
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber197
+End If
+If ReferenceNumber199 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber199
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber200
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber201
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber202
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber203
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber204
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber205
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber206
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber207
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber208
+End If
+If ReferenceNumber210 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber210
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber211
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber212
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber213
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber214
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber215
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber216
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber217
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber218
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber219
+End If
+If ReferenceNumber221 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_MF").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_PA").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_ML").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_SUR").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,1]").SetFocus
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,1]").caretPosition = 10
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_SODS").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,0]").SetFocus
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,0]").caretPosition = 8
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_SU").press
+session.findById("wnd[1]/tbar[0]/btn[5]").press
+session.findById("wnd[2]/tbar[0]/btn[80]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber221
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber222
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber223
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber224
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber225
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber226
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber227
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber228
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber229
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber230
+End If
+If ReferenceNumber232 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber232
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber233
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber234
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber235
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber236
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber237
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber238
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber239
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber240
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber241
+End If
+If ReferenceNumber243 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber243
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber244
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber245
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber246
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber247
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber248
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber249
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber250
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber251
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber252
+End If
+If ReferenceNumber254 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber254
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber255
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber256
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber257
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber258
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber259
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber260
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber261
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber262
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber263
+End If
+If ReferenceNumber265 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_MF").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_PA").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_ML").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_SUR").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,1]").SetFocus
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,1]").caretPosition = 10
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_SODS").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,0]").SetFocus
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,0]").caretPosition = 8
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_SU").press
+session.findById("wnd[1]/tbar[0]/btn[5]").press
+session.findById("wnd[2]/tbar[0]/btn[80]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber265
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber266
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber267
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber268
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber269
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber270
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber271
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber272
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber273
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber274
+End If
+If ReferenceNumber276 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber276
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber277
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber278
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber279
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber280
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber281
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber282
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber283
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber284
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber285
+End If
+If ReferenceNumber287 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber287
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber288
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber289
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber290
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber291
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber292
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber293
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber294
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber295
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber296
+End If
+If ReferenceNumber298 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber298
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber299
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber300
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber301
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber302
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber303
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber304
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber305
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber306
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber307
+End If
+If ReferenceNumber309 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_MF").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_PA").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_ML").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_SUR").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,1]").SetFocus
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,1]").caretPosition = 10
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_SODS").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,0]").SetFocus
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,0]").caretPosition = 8
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_SU").press
+session.findById("wnd[1]/tbar[0]/btn[5]").press
+session.findById("wnd[2]/tbar[0]/btn[80]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber309
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber310
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber311
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber312
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber313
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber314
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber315
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber316
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber317
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber318
+End If
+If ReferenceNumber320 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber320
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber321
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber322
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber323
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber324
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber325
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber326
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber327
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber328
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber329
+End If
+If ReferenceNumber331 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber331
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber332
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber333
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber334
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber335
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber336
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber337
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber338
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber339
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber340
+End If
+If ReferenceNumber342 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber342
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber343
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber344
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber345
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber346
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber347
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber348
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber349
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber350
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber351
+End If
+If ReferenceNumber353 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_MF").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_PA").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_ML").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_SUR").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,1]").SetFocus
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,1]").caretPosition = 10
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_SODS").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,0]").SetFocus
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,0]").caretPosition = 8
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_SU").press
+session.findById("wnd[1]/tbar[0]/btn[5]").press
+session.findById("wnd[2]/tbar[0]/btn[80]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber353
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber354
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber355
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber356
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber357
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber358
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber359
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber360
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber361
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber362
+End If
+If ReferenceNumber364 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber364
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber365
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber366
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber367
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber368
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber369
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber370
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber371
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber372
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber373
+End If
+If ReferenceNumber375 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber375
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber376
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber377
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber378
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber379
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber380
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber381
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber382
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber383
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber384
+End If
+If ReferenceNumber386 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber386
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber387
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber388
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber389
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber390
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber391
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber392
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber393
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber394
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber395
+End If
+If ReferenceNumber397 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_MF").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_PA").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_ML").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_SUR").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,1]").SetFocus
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,1]").caretPosition = 10
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_SODS").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,0]").SetFocus
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,0]").caretPosition = 8
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_SU").press
+session.findById("wnd[1]/tbar[0]/btn[5]").press
+session.findById("wnd[2]/tbar[0]/btn[80]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber397
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber398
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber399
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber400
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber401
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber402
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber403
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber404
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber405
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber406
+End If
+If ReferenceNumber408 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber408
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber409
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber410
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber411
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber412
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber413
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber414
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber415
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber416
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber417
+End If
+If ReferenceNumber419 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber419
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber420
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber421
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber422
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber423
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber424
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber425
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber426
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber427
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber428
+End If
+If ReferenceNumber430 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber430
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber431
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber432
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber433
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber434
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber435
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber436
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber437
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber438
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber439
+End If
+If ReferenceNumber441 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_MF").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_PA").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_ML").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_SUR").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,1]").SetFocus
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,1]").caretPosition = 10
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_SODS").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,0]").SetFocus
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,0]").caretPosition = 8
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_SU").press
+session.findById("wnd[1]/tbar[0]/btn[5]").press
+session.findById("wnd[2]/tbar[0]/btn[80]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber441
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber442
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber443
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber444
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber445
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber446
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber447
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber448
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber449
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber450
+End If
+If ReferenceNumber452 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber452
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber453
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber454
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber455
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber456
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber457
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber458
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber459
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber460
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber461
+End If
+If ReferenceNumber463 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber463
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber464
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber465
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber466
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber467
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber468
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber469
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber470
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber471
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber472
+End If
+If ReferenceNumber474 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber474
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber475
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber476
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber477
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber478
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber479
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber480
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber481
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber482
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber483
+End If
+If ReferenceNumber485 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_MF").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_PA").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_ML").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_SUR").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,1]").SetFocus
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,1]").caretPosition = 10
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_SODS").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,0]").SetFocus
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/tblSAPLFKB4CTRL_2000/txtFKKCLIT-XBLNR[5,0]").caretPosition = 8
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_SU").press
+session.findById("wnd[1]/tbar[0]/btn[5]").press
+session.findById("wnd[2]/tbar[0]/btn[80]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber485
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber486
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber487
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber488
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber489
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ReferenceNumber490
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ReferenceNumber491
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ReferenceNumber492
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ReferenceNumber493
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ReferenceNumber494
+End If
+If ReferenceNumber496 <> "" Then
+session.findById("wnd[2]/tbar[0]/btn[82]").press
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,0]").Text = ReferenceNumber496
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,1]").Text = ReferenceNumber497
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,2]").Text = ReferenceNumber498
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,3]").Text = ReferenceNumber499
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,4]").Text = ReferenceNumber500
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,5]").Text = ""
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,6]").Text = ""
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,7]").Text = ""
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,8]").Text = ""
+session.findById("wnd[2]/usr/tblSAPLFKB4TC_FISV_A/txtRFKB4_FISV-WERTVONINPUT[0,9]").Text = ""
+End If
+
+
+session.findById("wnd[2]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_MF").press
+session.findById("wnd[0]/usr/subINCL_1000:SAPLFKB4:2000/btnPUSH_PA").press
+session.findById("wnd[0]/tbar[1]/btn[27]").press
+On Error GoTo MissingAmount
+session.findById("wnd[0]/usr/ctxtRFKP2P-FPAYD").Text = Dateofpmt
+On Error GoTo 0
+
+  'assigning date
+session.findById("wnd[0]/tbar[0]/btn[11]").press
+'save
+
+
+session.findById("wnd[0]/usr/tabsFKP2P_0100/tabpSHOW_OP/ssubMAIN:SAPLFKP2PD:0101/tblSAPLFKP2PDFKP2P_0101_T").Columns.elementAt(4).Width = 13
+session.findById("wnd[0]/usr/tabsFKP2P_0100/tabpSHOW_OP/ssubMAIN:SAPLFKP2PD:0101/tblSAPLFKP2PDFKP2P_0101_T").Columns.elementAt(9).Width = 10
+session.findById("wnd[0]").sendVKey 2
+session.findById("wnd[0]").sendVKey 2
+session.findById("wnd[0]/usr/tabsFKP2P_0100/tabpSHOW_OP/ssubMAIN:SAPLFKP2PD:0101/tblSAPLFKP2PDFKP2P_0101_T").Columns.elementAt(0).Width = 10
+session.findById("wnd[0]/usr/tabsFKP2P_0100/tabpSHOW_OP/ssubMAIN:SAPLFKP2PD:0101/tblSAPLFKP2PDFKP2P_0101_T").Columns.elementAt(1).Width = 3
+session.findById("wnd[0]/usr/tabsFKP2P_0100/tabpSHOW_OP/ssubMAIN:SAPLFKP2PD:0101/tblSAPLFKP2PDFKP2P_0101_T/txtFKKPP_LST-PPKEY[9,0]").SetFocus
+session.findById("wnd[0]/usr/tabsFKP2P_0100/tabpSHOW_OP/ssubMAIN:SAPLFKP2PD:0101/tblSAPLFKP2PDFKP2P_0101_T/txtFKKPP_LST-PPKEY[9,0]").caretPosition = 6
+session.findById("wnd[0]").sendVKey 2
+On Error GoTo Uploadfail
+session.findById("wnd[0]/titl/shellcont/shell").pressContextButton "%GOS_TOOLBOX"
+session.findById("wnd[0]/titl/shellcont/shell").selectContextMenuItem "%GOS_PCATTA_CREA"
+session.findById("wnd[1]/usr/ctxtDY_PATH").Text = WshShell.SpecialFolders("Desktop")
+session.findById("wnd[1]/usr/ctxtDY_FILENAME").Text = "avis.msg"
+session.findById("wnd[1]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/tbar[0]/btn[15]").press
+session.findById("wnd[0]/tbar[0]/btn[15]").press
+
+
+session.findById("wnd[0]/tbar[0]/okcd").Text = "FPE2M"
+session.findById("wnd[0]/tbar[0]/btn[0]").press
+
+session.findById("wnd[0]/usr/ctxtFKKSLV-VKONT1").Text = ""
+session.findById("wnd[0]/usr/ctxtFKKSLV-GPART1").Text = ""
+
+session.findById("wnd[0]/usr/btnFKKSLV-PUSH_XBLNR").press
+Set rng = ThisWorkbook.Sheets("P2P").Range("A2:A201")
+rng.Select
+rng.Copy
+'session.findById("wnd[1]/usr/tabsTAB_STRIP/tabpSIVA/ssubSCREEN_HEADER:SAPLALDB:3010/tblSAPLALDBSINGLE/txtRSCSEL_255-SLOW_I[1,0]").Text = ReferenceNumber1
+session.findById("wnd[1]/tbar[0]/btn[24]").press
+
+session.findById("wnd[1]/tbar[0]/btn[8]").press
+session.findById("wnd[0]/tbar[0]/btn[0]").press
+'session.findById("wnd[0]/usr/tabsFKP2P_0100/tabpSHOW_OP/ssubMAIN:SAPLFKP2PD:0101/tblSAPLFKP2PDFKP2P_0101_T/txtFKKPP_LST-PPKEY[10,0]").Text = textToCopy2
+session.findById("wnd[0]/usr/txtRFKP6_NEW-OPTXT").Text = "P2P erhalten " & DateOfAvis & " Zahlung am " & Dateofpmt
+session.findById("wnd[0]/usr/btnPUSH_MON").press
+session.findById("wnd[0]/usr/btnPUSH_NEWV").press
+session.findById("wnd[0]/tbar[0]/btn[11]").press
+session.findById("wnd[0]/tbar[0]/btn[15]").press
+session.findById("wnd[0]/tbar[0]/btn[15]").press
+'session.findById("wnd[0]/tbar[0]/okcd").Text = textToCopy2
+
+'checking process - displays sum of Avis to compare against PDF
+session.findById("wnd[0]/tbar[0]/okcd").Text = "FPE3"
+session.findById("wnd[0]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/usr/txtRFPE1-XBLNR").Text = ReferenceNumber1
+session.findById("wnd[0]/usr/txtRFPE1-OPORD").Text = ""
+session.findById("wnd[0]/usr/ctxtRFPE1-OPBEL").Text = ""
+session.findById("wnd[0]/usr/txtRFPE1-XBLNR").SetFocus
+session.findById("wnd[0]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").selectedRows = ""
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").clickCurrentCell
+session.findById("wnd[0]").resizeWorkingPane 154, 55, False
+On Error GoTo 0
+
+
+  On Error GoTo Err2
+textToCopy = session.findById("wnd[0]/usr/tblSAPLFKPSCTRL_0705_OP/txtFPE3_OP-GPART[3,0]").Text
+CompCode = session.findById("wnd[0]/usr/tblSAPLFKPSCTRL_0705_OP/ctxtFPE3_OP-BUKRS[0,0]").Text
+    
+On Error GoTo 0
+    
+Resume2:
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/okcd").Text = "FP2P1"
+session.findById("wnd[0]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/usr/ctxtRFKP2P-GPART").Text = textToCopy
+session.findById("wnd[0]/usr/ctxtRFKP2P-BUKRS").Text = ""
+session.findById("wnd[0]").sendVKey 0
+
+SUM = session.findById("wnd[0]/usr/tabsFKP2P_0100/tabpSHOW_OP/ssubMAIN:SAPLFKP2PD:0101/tblSAPLFKP2PDFKP2P_0101_T/txtFKKPP_LST-PRAMT[2,0]").Text
+    ActiveSheet.Range("E2").Value = SUM
+    'there should be a sum in EW
+session.findById("wnd[0]/usr/tabsFKP2P_0100/tabpSHOW_OP/ssubMAIN:SAPLFKP2PD:0101/tblSAPLFKP2PDFKP2P_0101_T").Columns.elementAt(3).Width = 13
+session.findById("wnd[0]/usr/tabsFKP2P_0100/tabpSHOW_OP/ssubMAIN:SAPLFKP2PD:0101/tblSAPLFKP2PDFKP2P_0101_T").Columns.elementAt(4).Width = 13
+session.findById("wnd[0]/tbar[0]/btn[15]").press
+'back to menu
+
+MsgBox "Script completed, Value " & SUM & " in case of mismatch Check other accounts"
+Exit Sub
+
+MsgBox "Script completed, Value " & SUM & " in case of mismatch Check other accounts"
+    Else
+        ' If the user clicked No, exit the macro
+        MsgBox "P2P Cancelled :(", vbCritical
+        Exit Sub
+    End If
+
+GoTo Skip1
+
+MissingAmount:
+MsgBox "No Open Amount without a preexisting P2P selected"
+GoTo Skip1
+
+Error1:
+textToCopy = session.findById("wnd[0]/usr/tblSAPLFKPSCTRL_0702_OP/txtFPE3_OP-GPART[3,0]").Text
+CompCode = session.findById("wnd[0]/usr/tblSAPLFKPSCTRL_0702_OP/ctxtFPE3_OP-BUKRS[0,0]").Text
+GoTo Resume1
+
+Err2:
+On Error Resume Next
+textToCopy = session.findById("wnd[0]/usr/tblSAPLFKPSCTRL_0702_OP/txtFPE3_OP-GPART[3,0]").Text
+CompCode = session.findById("wnd[0]/usr/tblSAPLFKPSCTRL_0702_OP/ctxtFPE3_OP-BUKRS[0,0]").Text
+Resume Resume2
+    
+Uploadfail:
+MsgBox "upload failed", vbCritical
+Skip1:
+    
+DeleteFileOnDesktop
+RefreshDesktop
+
+
+
+End Sub
+
+

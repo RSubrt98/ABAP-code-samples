@@ -1,0 +1,239 @@
+Sub DataGrab()
+    Dim SapGuiAuto As Object
+    Dim SAPApp As Object
+    Dim SAPCon As Object
+    Dim session As Object
+    Dim SAPGuiSession As Object
+
+    Set SapGuiAuto = GetObject("SAPGUI")
+    Set SAPApp = SapGuiAuto.GetScriptingEngine
+    Set SAPCon = SAPApp.Children(0)
+    Set session = SAPCon.Children(0)
+   Dim Collector As String
+   CompanyCode = ActiveWorkbook.ActiveSheet.Range("A2").Value
+   Collector = ActiveWorkbook.ActiveSheet.Range("A2").Value
+  Application.Calculation = xlManual
+   'reset any possible transaction
+   session.findById("wnd[0]/tbar[0]/btn[3]").press
+   session.findById("wnd[0]/tbar[0]/btn[3]").press
+   session.findById("wnd[0]/tbar[0]/btn[3]").press
+   session.findById("wnd[0]/tbar[0]/btn[3]").press
+   session.findById("wnd[0]/tbar[0]/btn[3]").press
+   session.findById("wnd[0]/tbar[0]/btn[3]").press
+   session.findById("wnd[0]/tbar[0]/btn[3]").press
+   session.findById("wnd[0]/tbar[0]/btn[3]").press
+   
+session.findById("wnd[0]/tbar[0]/okcd").Text = "ZFCA0_1368"
+session.findById("wnd[0]/tbar[0]/btn[0]").press
+
+'variant
+session.findById("wnd[0]/tbar[1]/btn[17]").press
+session.findById("wnd[1]/usr/txtENAME-LOW").Text = ""
+session.findById("wnd[1]/usr/txtENAME-LOW").SetFocus
+session.findById("wnd[1]/usr/txtENAME-LOW").caretPosition = 0
+session.findById("wnd[1]/tbar[0]/btn[8]").press
+session.findById("wnd[1]/usr/cntlALV_CONTAINER_1/shellcont/shell").firstVisibleRow = 54
+session.findById("wnd[1]/usr/cntlALV_CONTAINER_1/shellcont/shell").firstVisibleRow = 93
+session.findById("wnd[1]/usr/cntlALV_CONTAINER_1/shellcont/shell").setCurrentCell -1, "ENAME"
+session.findById("wnd[1]/usr/cntlALV_CONTAINER_1/shellcont/shell").firstVisibleRow = 178
+session.findById("wnd[1]/usr/cntlALV_CONTAINER_1/shellcont/shell").selectColumn "ENAME"
+session.findById("wnd[1]/usr/cntlALV_CONTAINER_1/shellcont/shell").contextMenu
+session.findById("wnd[1]/usr/cntlALV_CONTAINER_1/shellcont/shell").selectContextMenuItem "&FILTER"
+session.findById("wnd[2]/usr/ssub%_SUBSCREEN_FREESEL:SAPLSSEL:1105/ctxt%%DYN001-LOW").Text = "I749026"
+session.findById("wnd[2]/usr/ssub%_SUBSCREEN_FREESEL:SAPLSSEL:1105/ctxt%%DYN001-LOW").caretPosition = 7
+session.findById("wnd[2]").sendVKey 0
+session.findById("wnd[1]/usr/cntlALV_CONTAINER_1/shellcont/shell").selectedRows = "0"
+session.findById("wnd[1]/usr/cntlALV_CONTAINER_1/shellcont/shell").doubleClickCurrentCell
+
+session.findById("wnd[0]/usr/ctxtS_COLLID-LOW").Text = Collector
+session.findById("wnd[0]/tbar[1]/btn[8]").press
+
+
+session.findById("wnd[0]/tbar[1]/btn[33]").press
+
+session.findById("wnd[1]/usr/subSUB_CONFIGURATION:SAPLSALV_CUL_LAYOUT_CHOOSE:0500/cntlD500_CONTAINER/shellcont/shell").contextMenu
+session.findById("wnd[1]/usr/subSUB_CONFIGURATION:SAPLSALV_CUL_LAYOUT_CHOOSE:0500/cntlD500_CONTAINER/shellcont/shell").selectContextMenuItem "&FILTER"
+session.findById("wnd[2]/usr/ssub%_SUBSCREEN_FREESEL:SAPLSSEL:1105/ctxt%%DYN001-LOW").Text = "/NGBCDEFAULT"
+session.findById("wnd[2]/usr/ssub%_SUBSCREEN_FREESEL:SAPLSSEL:1105/ctxt%%DYN001-LOW").caretPosition = 7
+session.findById("wnd[2]").sendVKey 0
+session.findById("wnd[1]/usr/subSUB_CONFIGURATION:SAPLSALV_CUL_LAYOUT_CHOOSE:0500/cntlD500_CONTAINER/shellcont/shell").selectedRows = "0"
+session.findById("wnd[1]/usr/subSUB_CONFIGURATION:SAPLSALV_CUL_LAYOUT_CHOOSE:0500/cntlD500_CONTAINER/shellcont/shell").clickCurrentCell
+
+
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell").setCurrentCell 3, "NAME_ORG1"
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell").contextMenu
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell").selectContextMenuItem "&XXL"
+session.findById("wnd[1]/tbar[0]/btn[20]").press
+session.findById("wnd[1]/tbar[0]/btn[0]").press
+
+
+' Record the initial number of open workbooks
+    initialWorkbookCount = Application.Workbooks.Count
+    
+    ' Set the maximum wait time (10 seconds)
+    maxWaitTime = 10
+    startTime = Timer
+    
+    ' Wait until a new workbook is added or the time limit is reached
+    Do While Application.Workbooks.Count <= initialWorkbookCount
+        DoEvents  ' Allow Excel to process other events
+        If Timer > startTime + maxWaitTime Then
+            MsgBox "New workbook did not open within the expected time.", vbExclamation
+            Exit Sub
+        End If
+    Loop
+    
+    ' The new workbook is now the last one added
+    Set NewWorkbook = Application.Workbooks(Application.Workbooks.Count)
+    
+    ' Activate the new workbook
+    NewWorkbook.Activate
+    
+    ' Select all cells in column A of the active sheet in the new workbook
+    NewWorkbook.Sheets(1).Columns("A:EX").Select
+    
+    ' Copy the selected cells to the clipboard
+    Selection.Copy
+
+    Dim lastWorkbook As Workbook
+    
+    ' Identify the last opened workbook
+    Set lastWorkbook = Application.Workbooks(Application.Workbooks.Count)
+    
+
+
+     Dim targetWorkbook As Workbook
+    Dim targetSheet As Worksheet
+    
+    ' Reference the workbook named "Offene Rechnungen über 1 000 000"
+    On Error Resume Next ' In case the workbook is not found, prevent the macro from crashing
+    Set targetWorkbook = ThisWorkbook
+    On Error GoTo 0 ' Turn off error handling
+    
+    If Not targetWorkbook Is Nothing Then
+        ' Reference the sheet named "Data" within that workbook
+        On Error Resume Next ' Handle the case where the sheet may not exist
+        Set targetSheet = targetWorkbook.Sheets("Data")
+        On Error GoTo 0 ' Turn off error handling
+        
+        If Not targetSheet Is Nothing Then
+            ' Activate the "Data" sheet
+            targetSheet.Activate
+            
+            ' Paste the data from the clipboard into cell A1
+            targetSheet.Range("A1").Select
+            targetSheet.Paste
+            
+        Else
+            MsgBox "The sheet 'Data' was not found in the workbook 'Offene Rechnungen über 1 000 000'.", vbExclamation
+        End If
+    Else
+        MsgBox "The workbook 'Offene Rechnungen über 1 000 000' is not open.", vbExclamation
+    End If
+    
+    Application.CutCopyMode = False
+    
+        ' Close the last opened workbook without saving changes
+    lastWorkbook.Close SaveChanges:=False
+    
+        Dim wb As Workbook
+    Dim ws As Worksheet
+    Dim targetColumn As Range
+    Dim foundHeader As Range
+    Dim headerRow As Range
+    Dim lastRow As Long
+    Dim colNumber As Integer
+    Dim cell As Range
+    
+    ' Open the workbook (assuming it's already open; if not, you would need to open it)
+    On Error Resume Next
+    Set wb = ThisWorkbook
+    On Error GoTo 0
+    
+    If wb Is Nothing Then
+        MsgBox "Workbook 'Offene Rechnungen über 1 000 000.xlsm' is not open.", vbExclamation
+        Exit Sub
+    End If
+    
+    ' Set the target sheet
+    Set ws = wb.Sheets("Data")
+    
+    ' Find the header row containing "Document Amount"
+    Set headerRow = ws.Rows(1) ' Assuming the header is in the first row
+    Set foundHeader = headerRow.Find(What:="Document Amount", LookIn:=xlValues, LookAt:=xlWhole)
+    
+    If foundHeader Is Nothing Then
+        MsgBox "'Document Amount' column not found.", vbExclamation
+        Exit Sub
+    End If
+    
+    ' Get the column number of the found header
+    colNumber = foundHeader.Column
+    
+    ' Determine the last row with data in the "Document Amount" column
+    lastRow = ws.Cells(ws.Rows.Count, colNumber).End(xlUp).Row
+    
+    ' Set the range for the entire column of "Document Amount"
+    Set targetColumn = ws.Range(ws.Cells(2, colNumber), ws.Cells(lastRow, colNumber)) ' Assuming data starts from row 2
+    
+    ' Convert each cell in the target column to a number
+    For Each cell In targetColumn
+        If IsNumeric(cell.Value) Then
+            cell.Value = cell.Value * 1 ' This forces Excel to convert text numbers to actual numbers
+        End If
+    Next cell
+ session.findById("wnd[0]/tbar[0]/btn[15]").press
+session.findById("wnd[0]/tbar[0]/btn[15]").press
+
+    Dim lastColumn As Long
+    Dim i As Long
+    Dim keepColumns As String
+    
+    ' Define the columns to keep (headers)
+    keepColumns = "Business Partner,BusinessPartner Name,Ref. document number,Document Date,Net Due Date,Document Amount,Doc currency,Days Past Due,Text,Document Number,Company Code,Disputes Exists"
+    
+    ' Set the worksheet you are working on
+    Set ws = ThisWorkbook.Sheets("Data") ' Change "Sheet1" to your actual sheet name
+
+    ' Find the last column with data
+    lastColumn = ws.Cells(1, ws.Columns.Count).End(xlToLeft).Column
+    
+    ' Loop through columns from the last to the first
+    For i = lastColumn To 1 Step -1
+        ' Check if the header in row 1 is in the list of columns to keep
+        If InStr(1, keepColumns, ws.Cells(1, i).Value, vbTextCompare) = 0 Then
+            ' If not, delete the column
+            ws.Columns(i).Delete
+        End If
+    Next i
+
+    Range("M2").Select
+    ActiveCell.FormulaR1C1 = "=SUMIFS(C[-4],C[-9],RC[-9])"
+    Range("I1").Select
+    Selection.Copy
+    Range("M1").Select
+    ActiveSheet.Paste
+    Range("M2").Select
+    Application.CutCopyMode = False
+      lastRow = Cells(Rows.Count, "A").End(xlUp).Row
+       Set SourceRange = Selection
+        Set fillRange = SourceRange.Resize(lastRow - SourceRange.Row + 1)
+    SourceRange.AutoFill Destination:=fillRange
+    Calculate
+    Columns("M:M").Select
+    Selection.Copy
+    Columns("I:I").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+    Columns("M:M").Select
+    Application.CutCopyMode = False
+    Selection.Delete Shift:=xlToLeft
+    Columns("A:L").Select
+    ActiveSheet.Range("A:L").RemoveDuplicates Columns:=4, Header:=xlYes
+
+    Calculate
+    
+Sheets("Friday Report").Select
+Range("A4").Formula2 = "=FILTER(Data!A:L,(Data!I:I>IF(Data!A:A=""0023"",$E$1,IF(Data!M:M=""0003"",$E$3,$E$2))))"
+Application.Calculation = xlAutomatic
+End Sub

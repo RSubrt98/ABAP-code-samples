@@ -1,0 +1,362 @@
+Sub Saldenbestatigung()
+    Dim SapGuiAuto As Object
+    Dim SAPApp As Object
+    Dim SAPCon As Object
+    Dim session As Object
+    Dim SAPGuiSession As Object
+
+    ' Initialize the SAP GUI Scripting objects
+    Set SapGuiAuto = GetObject("SAPGUI")
+    Set SAPApp = SapGuiAuto.GetScriptingEngine
+    Set SAPCon = SAPApp.Children(0)
+    Set session = SAPCon.Children(0)
+    
+
+  
+Dim KeyDate As String
+Dim BP As String
+Dim CompanyCode As String
+     Dim ws As Worksheet
+    Set ws = ThisWorkbook.Sheets("SB")
+
+KeyDate = ActiveWorkbook.ActiveSheet.Range("A2").Value
+BP = ActiveWorkbook.ActiveSheet.Range("B2").Value
+CompanyCode = ActiveWorkbook.ActiveSheet.Range("C2").Value
+
+Application.Calculation = xlManual
+    
+    ws.Range("H1") = "PROCESSING."
+ ws.Range("A4:H3500").ClearContents
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/okcd").Text = "FPO4"
+session.findById("wnd[0]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/tbar[1]/btn[17]").press
+session.findById("wnd[1]/usr/txtV-LOW").Text = "RS"
+session.findById("wnd[1]/usr/ctxtENVIR-LOW").Text = ""
+session.findById("wnd[1]/usr/txtENAME-LOW").Text = ""
+session.findById("wnd[1]/usr/txtAENAME-LOW").Text = ""
+session.findById("wnd[1]/usr/txtMLANGU-LOW").Text = ""
+session.findById("wnd[1]/tbar[0]/btn[8]").press
+session.findById("wnd[0]/usr/tabsTABSTRIP_TAB_B1/tabpTB11/ssub%_SUBSCREEN_TAB_B1:RFKKOP04:1001/ctxtP_KEYDT").Text = KeyDate
+session.findById("wnd[0]/usr/tabsTABSTRIP_TAB_B1/tabpTB11/ssub%_SUBSCREEN_TAB_B1:RFKKOP04:1001/ctxtS_GPART-LOW").Text = BP
+session.findById("wnd[0]/usr/tabsTABSTRIP_TAB_B1/tabpTB11/ssub%_SUBSCREEN_TAB_B1:RFKKOP04:1001/ctxtS_BUKRS-LOW").Text = CompanyCode
+session.findById("wnd[0]/usr/tabsTABSTRIP_TAB_B1/tabpTB11/ssub%_SUBSCREEN_TAB_B1:RFKKOP04:1001/radP_OPEN").SetFocus
+
+session.findById("wnd[0]/usr/tabsTABSTRIP_TAB_B1/tabpTB12").Select
+session.findById("wnd[0]/usr/tabsTABSTRIP_TAB_B1/tabpTB12/ssub%_SUBSCREEN_TAB_B1:RFKKOP04:1002/chkP_ALV").SetFocus
+session.findById("wnd[0]/usr/tabsTABSTRIP_TAB_B1/tabpTB12/ssub%_SUBSCREEN_TAB_B1:RFKKOP04:1002/chkP_ALV").Selected = True
+
+ws.Range("H1") = "PROCESSING.."
+session.findById("wnd[0]/usr/tabsTABSTRIP_TAB_B1/tabpTB12/ssub%_SUBSCREEN_TAB_B1:RFKKOP04:1002/ctxtP_ALVVAR").Text = "/MACRO R"
+session.findById("wnd[0]").sendVKey 0
+session.findById("wnd[0]/tbar[1]/btn[8]").press
+
+On Error GoTo Here
+
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").setCurrentCell -1, "WAERS_T001"
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").selectColumn "GPART"
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").selectColumn "ZZFCA0_NAME_ORG1_FKKOPRU"
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").selectColumn "XBLNR"
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").selectColumn "BLDAT"
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").selectColumn "FAEDN"
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").selectColumn "BETRW"
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").selectColumn "WAERS_T001"
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").selectColumn "OPBEL"
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").selectedRows = ""
+
+
+On Error GoTo 0
+
+
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").contextMenu
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").selectContextMenuItemBytext "Copy Text"
+    On Error GoTo Fix1
+    ws.Range("A4").Select
+     DoEvents
+    ws.Paste
+Fix1:
+    ws.Paste
+    ws.Columns("I:Y").Select
+    Selection.ClearContents
+    ws.Activate
+
+session.findById("wnd[0]/tbar[0]/btn[15]").press
+session.findById("wnd[0]/tbar[0]/btn[15]").press
+ws.Range("H1") = "PROCESSING..."
+    Dim rng As Range
+    Dim cell As Range
+    Dim cellValue As String
+    Dim lastChar As String
+    
+        Range("A4:J5000").Select
+    Selection.Borders(xlDiagonalDown).LineStyle = xlNone
+    Selection.Borders(xlDiagonalUp).LineStyle = xlNone
+    Selection.Borders(xlEdgeLeft).LineStyle = xlNone
+    Selection.Borders(xlEdgeTop).LineStyle = xlNone
+    Selection.Borders(xlEdgeBottom).LineStyle = xlNone
+    Selection.Borders(xlEdgeRight).LineStyle = xlNone
+    Selection.Borders(xlInsideVertical).LineStyle = xlNone
+    Selection.Borders(xlInsideHorizontal).LineStyle = xlNone
+    
+    
+    ' Set the worksheet to "SB"
+    Set ws = ThisWorkbook.Sheets("SB")
+    
+    ' Set the range F4:F200
+    Set rng = ws.Range("F4:F3000")
+    
+    ' Loop through each cell in the range
+    For Each cell In rng
+        ' Substitute "." with ""
+        cellValue = Replace(cell.Value, ".", "")
+        
+        ' Get the rightmost character
+        lastChar = Right(cellValue, 1)
+        
+        ' Check if the rightmost character is "-"
+        If lastChar = "-" Then
+            ' Remove the "-" and make the number negative
+            cellValue = Left(cellValue, Len(cellValue) - 1)
+            cellValue = "-" & cellValue
+        End If
+        ' Update the cell value
+        cell.Value = cellValue
+        
+        ' Convert the resulting text to a value
+        On Error Resume Next ' To handle any errors during conversion
+        On Error GoTo 0 ' Resume normal error handling
+        ' Apply the VALUE() function to convert the string to a number
+        cell.Formula = "=VALUE(""" & cellValue & """)"
+        
+        ' Replace the formula with its result to keep only the value
+        cell.Value = cell.Value
+        
+         If ws.Cells(cell.Row, "E").Value = "" Then
+            ' Clear the cell in column F
+            cell.ClearContents
+        End If
+      ws.Range("H1") = "PROCESSING"
+        
+            Dim sourceRange As Range
+    Dim fillRange As Range
+   Next cell
+   
+   ThisWorkbook.Sheets("SB").Range("I4").Select
+    ActiveCell.FormulaR1C1 = "=SUMIFS(C[-3],C[-1],RC[-1])"
+    Range("I4").Select
+    Selection.AutoFill Destination:=Range("I4:I3000")
+    Calculate
+    Calculate
+    Calculate
+    Calculate
+    ws.Columns("I:I").Select
+    Selection.Copy
+     DoEvents
+    ws.Columns("F:F").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+    ws.Range("F3").Select
+    Application.CutCopyMode = False
+    ThisWorkbook.Sheets("SB").Range("F3").FormulaR1C1 = "Amount"
+    ws.Columns("I:I").ClearContents
+    ThisWorkbook.Sheets("SB").Range("A3:H9999").RemoveDuplicates Columns:=3, Header:=xlYes
+        
+ws.Range("H1") = "PROCESSING."
+        
+    ' Find the first empty cell in the range
+    For Each cell In rng
+        If IsEmpty(cell) Then
+            Set firstEmptyCell = cell
+            Exit For
+        End If
+    Next cell
+    
+    ' Place the sum in the first empty cell found
+    If Not firstEmptyCell Is Nothing Then
+        firstEmptyCell.Select
+ActiveCell.FormulaR1C1 = "=SUMIFS(R4C6:R3000C6, R4C7:R3000C7, ""<>"")"
+       firstEmptyCell.Select
+    Selection.Copy
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+    End If
+    Set ws = ThisWorkbook.Sheets("SB")
+    With ws.Range("F4:F3000").NumberFormat = "_-* #,##0.00 _K_c_-;-* #,##0.00 _K_c_-;_-* ""-""?? _K_c_-;_-@_-"
+    With ws.Range("J4:J3000").NumberFormat = "_-* #,##0.00 _K_c_-;-* #,##0.00 _K_c_-;_-* ""-""?? _K_c_-;_-@_-"
+   Range("C4:C3000").NumberFormat = "0"
+    Range("H4:H3000").NumberFormat = "0"
+    ws.Range("A1").Select
+    ws.Range("H1") = "PROCESSING.."
+     Range("F3").Select
+    Selection.End(xlDown).Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    ActiveCell.Offset(-1, 0).Range("A1").Select
+    ActiveSheet.Paste
+    ActiveCell.Offset(1, 0).Range("A1").Select
+    Application.CutCopyMode = False
+    Selection.ClearContents
+    
+    End With
+    End With
+     GoTo Boop
+     
+     
+Here:
+     MsgBox "No open entries found", vbInformation, "Message"
+GoTo Ends
+
+     
+Boop:
+
+      Columns("F:F").Select
+    Selection.Style = "Comma"
+    
+ThisWorkbook.Sheets("SB").Range("C4:C2000").Select
+ThisWorkbook.Sheets("SB").Range("C4:C2000").Copy
+ws.Range("H1") = "PROCESSING..."
+    session.findById("wnd[0]/tbar[0]/okcd").Text = "ZZCI1_REP_INVHEADER"
+session.findById("wnd[0]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/tbar[1]/btn[17]").press
+session.findById("wnd[1]/usr/txtV-LOW").Text = "RS"
+session.findById("wnd[1]/usr/ctxtENVIR-LOW").Text = ""
+session.findById("wnd[1]/usr/txtENAME-LOW").Text = ""
+session.findById("wnd[1]/usr/txtAENAME-LOW").Text = ""
+session.findById("wnd[1]/usr/txtMLANGU-LOW").Text = ""
+session.findById("wnd[1]/usr/txtV-LOW").SetFocus
+session.findById("wnd[1]/tbar[0]/btn[8]").press
+session.findById("wnd[0]/usr/ctxtS_BUKRS-LOW").Text = CompanyCode
+session.findById("wnd[0]/usr/txtS_EXBEL-LOW").SetFocus
+session.findById("wnd[0]/usr/txtS_EXBEL-LOW").caretPosition = 0
+session.findById("wnd[0]/usr/btn%_S_EXBEL_%_APP_%-VALU_PUSH").press
+session.findById("wnd[1]/tbar[0]/btn[24]").press
+session.findById("wnd[1]/tbar[0]/btn[8]").press
+session.findById("wnd[0]/tbar[1]/btn[8]").press
+
+ws.Range("H1") = "PROCESSING"
+    Sheets("Data").Select
+    Range("A2:B20000").Select
+    Selection.ClearContents
+     Sheets("SB").Select
+     
+session.findById("wnd[0]/tbar[1]/btn[33]").press
+session.findById("wnd[1]/usr/subSUB_CONFIGURATION:SAPLSALV_CUL_LAYOUT_CHOOSE:0500/cntlD500_CONTAINER/shellcont/shell").contextMenu
+session.findById("wnd[1]/usr/subSUB_CONFIGURATION:SAPLSALV_CUL_LAYOUT_CHOOSE:0500/cntlD500_CONTAINER/shellcont/shell").selectContextMenuItem "&FILTER"
+session.findById("wnd[2]/usr/ssub%_SUBSCREEN_FREESEL:SAPLSSEL:1105/ctxt%%DYN001-LOW").Text = "/MACRO R"
+session.findById("wnd[2]/tbar[0]/btn[0]").press
+session.findById("wnd[1]/usr/subSUB_CONFIGURATION:SAPLSALV_CUL_LAYOUT_CHOOSE:0500/cntlD500_CONTAINER/shellcont/shell").selectedRows = "0"
+session.findById("wnd[1]/usr/subSUB_CONFIGURATION:SAPLSALV_CUL_LAYOUT_CHOOSE:0500/cntlD500_CONTAINER/shellcont/shell").clickCurrentCell
+
+
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell").setCurrentCell -1, ""
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell").SelectAll
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell").contextMenu
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell").selectContextMenuItemBytext "Copy Text"
+ws.Range("H1") = "PROCESSING."
+ DoEvents
+    Sheets("Data").Select
+    Range("A2").Select
+    On Error GoTo Blomp
+   ActiveSheet.Paste
+    On Error GoTo 0
+Resume2:
+    
+    Sheets("SB").Select
+    Range("I3").Select
+    Application.CutCopyMode = False
+    ActiveCell.FormulaR1C1 = "Bill to BP"
+    Range("I4").Select
+    ActiveCell.FormulaR1C1 = _
+        "=IF(RC[-6]="""","""",XLOOKUP(RC[-6],Data!C[-8],Data!C[-7],""""))"
+    Range("I4").Select
+    Selection.AutoFill Destination:=Range("I4:I2000")
+
+    
+    Application.Calculation = xlAutomatic
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+
+Dim lastRow As Long
+  
+  lastRow = ws.Cells(ws.Rows.Count, "F").End(xlUp).Row
+    If lastRow >= 4 And firstEmptyCell.Row <= 3000 Then
+          With ws.Range("A" & firstEmptyCell.Row - 2 & ":I" & firstEmptyCell.Row - 2).Borders(xlEdgeBottom)
+            .LineStyle = xlContinuous
+            .Weight = xlThick
+        End With
+    End If
+
+Ends:
+GoTo Skip3
+Blomp:
+ActiveSheet.Paste
+GoTo Resume2
+
+Skip3:
+
+
+'BP part
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/okcd").Text = "ZFCA0_1352"
+session.findById("wnd[0]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/usr/chkP_BP_AD").Selected = True
+session.findById("wnd[0]/usr/ctxtS_STDBK-LOW").Text = CompanyCode
+session.findById("wnd[0]/usr/ctxtS_GPART-LOW").Text = BP
+session.findById("wnd[0]/usr/chkP_BP_AD").SetFocus
+session.findById("wnd[0]/tbar[1]/btn[8]").press
+session.findById("wnd[0]/tbar[1]/btn[33]").press
+session.findById("wnd[1]/usr/subSUB_CONFIGURATION:SAPLSALV_CUL_LAYOUT_CHOOSE:0500/cntlD500_CONTAINER/shellcont/shell").currentCellRow = 1
+session.findById("wnd[1]/usr/subSUB_CONFIGURATION:SAPLSALV_CUL_LAYOUT_CHOOSE:0500/cntlD500_CONTAINER/shellcont/shell").selectColumn "VARIANT"
+session.findById("wnd[1]/usr/subSUB_CONFIGURATION:SAPLSALV_CUL_LAYOUT_CHOOSE:0500/cntlD500_CONTAINER/shellcont/shell").selectedRows = ""
+session.findById("wnd[1]/usr/subSUB_CONFIGURATION:SAPLSALV_CUL_LAYOUT_CHOOSE:0500/cntlD500_CONTAINER/shellcont/shell").contextMenu
+session.findById("wnd[1]/usr/subSUB_CONFIGURATION:SAPLSALV_CUL_LAYOUT_CHOOSE:0500/cntlD500_CONTAINER/shellcont/shell").selectContextMenuItem "&FILTER"
+session.findById("wnd[2]/usr/ssub%_SUBSCREEN_FREESEL:SAPLSSEL:1105/ctxt%%DYN001-LOW").Text = "/MACRO ADDR"
+session.findById("wnd[2]/tbar[0]/btn[0]").press
+session.findById("wnd[1]/usr/subSUB_CONFIGURATION:SAPLSALV_CUL_LAYOUT_CHOOSE:0500/cntlD500_CONTAINER/shellcont/shell").selectedRows = "0"
+session.findById("wnd[1]/usr/subSUB_CONFIGURATION:SAPLSALV_CUL_LAYOUT_CHOOSE:0500/cntlD500_CONTAINER/shellcont/shell").clickCurrentCell
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell").selectedRows = "0"
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell").contextMenu
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell").selectContextMenuItemBytext "Copy Text"
+ DoEvents
+    Sheets("Data").Select
+    Range("N3").Select
+    On Error GoTo Error1
+    
+    ActiveSheet.Paste
+    On Error GoTo 0
+Resumerino:
+    
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+GoTo Skipp
+Error1:
+ DoEvents
+  ActiveSheet.Paste
+  GoTo Resumerino
+Skipp:
+  Sheets("SB").Select
+  ws.Range("H1") = ""
+End Sub
+

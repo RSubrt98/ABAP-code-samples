@@ -1,0 +1,234 @@
+Sub Saldenbestatigung()
+    Dim SapGuiAuto As Object
+    Dim SAPApp As Object
+    Dim SAPCon As Object
+    Dim session As Object
+    Dim SAPGuiSession As Object
+    Set SapGuiAuto = GetObject("SAPGUI")
+    Set SAPApp = SapGuiAuto.GetScriptingEngine
+    Set SAPCon = SAPApp.Children(0)
+    Set session = SAPCon.Children(0)
+
+Dim BP As String
+Dim CompanyCode As String
+
+     Dim ws As Worksheet
+    Set ws = ThisWorkbook.Sheets("OP")
+
+BP = ActiveWorkbook.ActiveSheet.Range("B1").Value
+CompanyCode = ActiveWorkbook.ActiveSheet.Range("B2").Value
+'clearing my sheeet
+ws.Range("A3:O20000").ClearContents
+'reset back to menu
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+
+session.findById("wnd[0]/tbar[0]/okcd").Text = "FPL9"
+session.findById("wnd[0]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/usr/btnPUSH_RGPA").press
+session.findById("wnd[1]/tbar[0]/btn[16]").press
+session.findById("wnd[1]/tbar[0]/btn[8]").press
+session.findById("wnd[0]/usr/ctxtFKKL1-GPART").Text = ""
+session.findById("wnd[0]/usr/ctxtFKKL1-VKONT").Text = ""
+session.findById("wnd[0]/usr/ctxtFKKL1-VTREF").Text = ""
+session.findById("wnd[0]/usr/ctxtFKKL1-BUKRS").Text = ""
+session.findById("wnd[0]/usr/ctxtFKKL1-RATPL").Text = ""
+session.findById("wnd[0]/usr/txtFKKL1-SAMMR").Text = ""
+session.findById("wnd[0]/usr/txtFKKL1-XBLNR").Text = ""
+session.findById("wnd[0]/usr/txtFKKL1-OPORD").Text = ""
+session.findById("wnd[0]/usr/ctxtFKKL1-ARCDT").Text = ""
+session.findById("wnd[0]/usr/ctxtFKKL1-GPART").Text = BP
+session.findById("wnd[0]/usr/ctxtFKKL1-BUKRS").Text = CompanyCode
+session.findById("wnd[0]/usr/ctxtFKKL1-VKONT").Text = ""
+session.findById("wnd[0]/usr/ctxtFKKL1-VTREF").Text = ""
+
+session.findById("wnd[0]/usr/cmbFKKL1-LSTYP").Key = "OP"
+On Error GoTo not_found
+session.findById("wnd[0]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/mbar/menu[3]/menu[9]").Select
+session.findById("wnd[0]/tbar[1]/btn[33]").press
+On Error GoTo 0
+session.findById("wnd[1]/usr/subSUB_CONFIGURATION:SAPLSALV_CUL_LAYOUT_CHOOSE:0500/cntlD500_CONTAINER/shellcont/shell").contextMenu
+session.findById("wnd[1]/usr/subSUB_CONFIGURATION:SAPLSALV_CUL_LAYOUT_CHOOSE:0500/cntlD500_CONTAINER/shellcont/shell").selectContextMenuItem "&FILTER"
+session.findById("wnd[2]/usr/ssub%_SUBSCREEN_FREESEL:SAPLSSEL:1105/ctxt%%DYN001-LOW").Text = "/DACH R"
+session.findById("wnd[2]/usr/ssub%_SUBSCREEN_FREESEL:SAPLSSEL:1105/ctxt%%DYN001-LOW").caretPosition = 6
+session.findById("wnd[2]/tbar[0]/btn[0]").press
+session.findById("wnd[1]/usr/subSUB_CONFIGURATION:SAPLSALV_CUL_LAYOUT_CHOOSE:0500/cntlD500_CONTAINER/shellcont/shell").selectedRows = "0"
+session.findById("wnd[1]/usr/subSUB_CONFIGURATION:SAPLSALV_CUL_LAYOUT_CHOOSE:0500/cntlD500_CONTAINER/shellcont/shell").clickCurrentCell
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").contextMenu
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").selectContextMenuItem "&XXL"
+session.findById("wnd[1]/tbar[0]/btn[20]").press
+session.findById("wnd[1]/tbar[0]/btn[0]").press
+
+' Record the initial number of open workbooks
+    initialWorkbookCount = Application.Workbooks.Count
+    
+    ' Set the maximum wait time (10 seconds)
+    maxWaitTime = 100
+    startTime = Timer
+    
+    ' Wait until a new workbook is added or the time limit is reached
+    Do While Application.Workbooks.Count <= initialWorkbookCount
+        DoEvents  ' Allow Excel to process other events
+        If Timer > startTime + maxWaitTime Then
+            MsgBox "New workbook did not open within the expected time.", vbExclamation
+            Exit Sub
+        End If
+    Loop
+    
+    ' The new workbook is now the last one added
+    Set NewWorkbook = Application.Workbooks(Application.Workbooks.Count)
+    ' Activate the new workbook
+    NewWorkbook.Activate
+    
+    Dim rng As Range
+    Dim lastRow As Long
+    Dim i As Long
+    
+    ' Set the worksheet to the active sheet
+    Set ws = ActiveSheet
+    
+    ' Find the last row in column A
+    lastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
+    
+    ' Loop through each row from the bottom to the top
+    For i = lastRow To 1 Step -1
+        ' Check if the cell in column A is empty
+        If ws.Cells(i, 1).Value = "" Then
+            ' Delete the entire row
+            ws.Rows(i).Delete
+        End If
+        
+    Next i
+    
+    
+    
+    
+ ' Step 2: Delete specified columns based on headers
+    Dim headersToDelete As Variant
+    headersToDelete = Array( _
+        "Traffic Light", _
+        "Description", _
+        "Closed Disputes Exists", _
+        "Clearing Date", _
+        "Clearing Document", _
+        "Substitute Document", _
+        "Sales Document", _
+        "Corresp. Recipient", _
+        "Still open")
+
+    ' Get the last column in row 1
+    Dim lastCol As Long
+    lastCol = ws.Cells(1, ws.Columns.Count).End(xlToLeft).Column
+
+    ' Loop through each column from the last to the first
+    Dim col As Long
+    For col = lastCol To 1 Step -1
+        ' Check if the header of the current column matches any of the headers to delete
+        If Not IsError(Application.Match(ws.Cells(1, col).Value, headersToDelete, 0)) Then
+            ' Delete the column
+            ws.Columns(col).Delete
+                     
+        End If
+    Next col
+
+ ' Set the "OP liste.xlsm" workbook and the "OP" sheet
+    Set opWorkbook = ThisWorkbook
+    Set opSheet = opWorkbook.Sheets("OP")
+    
+     ' Set the last active sheet
+    Set lastActiveSheet = ActiveSheet
+    
+        ' Identify the last used range in the last active sheet
+    Set lastUsedRange = lastActiveSheet.UsedRange
+    
+    ' Copy the last used range from the last active sheet
+    lastUsedRange.Copy
+    
+    ' Paste the copied range into cell A3 on the "OP" sheet
+    opSheet.Range("A3").PasteSpecial Paste:=xlPasteValues
+    
+    ' Clear the clipboard to remove the copied data
+    Application.CutCopyMode = False
+    
+    ' Close the last active sheet without saving changes
+    lastActiveSheet.Parent.Close SaveChanges:=False
+    
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+
+    Dim sourceRange As Range
+    Dim fillRange As Range
+
+    Range("O4").Select
+ActiveCell.FormulaR1C1 = "=SUMIFS(C[-7],C[-11],RC[-11])"
+    Range("O4").Select
+     lastRow = Cells(Rows.Count, "A").End(xlUp).Row
+         Set sourceRange = Selection
+    Set fillRange = sourceRange.Resize(lastRow - sourceRange.Row + 1)
+     sourceRange.AutoFill Destination:=fillRange
+     Calculate
+    Range("H3").Select
+    Selection.Copy
+    Range("O3").Select
+    ActiveSheet.Paste
+    Columns("O:O").Select
+    Selection.Copy
+    Columns("H:H").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+    Columns("O:O").Select
+    Application.CutCopyMode = False
+    Selection.Delete Shift:=xlToLeft
+    ActiveSheet.Range("$A$3:$O$9999").RemoveDuplicates Columns:=4, Header:=xlYes
+    'number formatting
+Range("A1").Select
+Range("F4", "G50000").NumberFormat = "dd.mm.yyyy"
+Range("H4", "H50000").NumberFormat = "_-* #,##0.00 _K_c_-;-* #,##0.00 _K_c_-;_-* ""-""?? _K_c_-;_-@_-"
+'condi formatting
+    Columns("J:J").Select
+    Cells.FormatConditions.Delete
+    Columns("J:J").Select
+    Selection.FormatConditions.AddColorScale ColorScaleType:=3
+    Selection.FormatConditions(Selection.FormatConditions.Count).SetFirstPriority
+    Selection.FormatConditions(1).ColorScaleCriteria(1).Type = _
+        xlConditionValueLowestValue
+    With Selection.FormatConditions(1).ColorScaleCriteria(1).FormatColor
+        .Color = 5287936
+        .TintAndShade = 0
+    End With
+    Selection.FormatConditions(1).ColorScaleCriteria(2).Type = _
+        xlConditionValueNumber
+    Selection.FormatConditions(1).ColorScaleCriteria(2).Value = 0
+    With Selection.FormatConditions(1).ColorScaleCriteria(2).FormatColor
+        .Color = 8711167
+        .TintAndShade = 0
+    End With
+    Selection.FormatConditions(1).ColorScaleCriteria(3).Type = _
+        xlConditionValueHighestValue
+    With Selection.FormatConditions(1).ColorScaleCriteria(3).FormatColor
+        .Color = 255
+        .TintAndShade = 0
+    End With
+    GoTo Boop
+not_found:
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+    MsgBox "No open entries found", vbInformation, "Message"
+Boop:
+    
+    
+    
+    End Sub
+    

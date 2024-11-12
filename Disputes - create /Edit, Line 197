@@ -1,0 +1,361 @@
+Sub AutomaticNewdis()
+    Dim SapGuiAuto As Object
+    Dim SAPApp As Object
+    Dim SAPCon As Object
+    Dim session As Object
+    Dim SAPGuiSession As Object
+    Set SapGuiAuto = GetObject("SAPGUI")
+    Set SAPApp = SapGuiAuto.GetScriptingEngine
+    Set SAPCon = SAPApp.Children(0)
+    Set session = SAPCon.Children(0)
+
+Dim RefDoc As String
+Dim Persresp As String
+Dim Cathegory As String
+Dim Status As String
+Dim Text As String
+Dim ConPers As String
+Dim ConPersEmail As String
+Dim Priority As String
+Dim att1 As String
+Dim att2 As String
+Dim Reason As String
+Dim WshShell As Object
+Set WshShell = CreateObject("WScript.Shell")
+
+Priority = ThisWorkbook.ActiveSheet.Range("C8").Value
+ConPers = ThisWorkbook.ActiveSheet.Range("B3").Value
+ConPersEmail = ThisWorkbook.ActiveSheet.Range("B4").Value
+RefDoc = ThisWorkbook.ActiveSheet.Range("C2").Value
+persrep = ThisWorkbook.ActiveSheet.Range("B5").Value
+Cathegory = ThisWorkbook.ActiveSheet.Range("B6").Value
+Status = ThisWorkbook.ActiveSheet.Range("B7").Value
+Text = ThisWorkbook.ActiveSheet.Range("C15").Value
+att1 = ThisWorkbook.ActiveSheet.Range("B17").Value
+att2 = ThisWorkbook.ActiveSheet.Range("B18").Value
+
+ThisWorkbook.ActiveSheet.Range("B10").ClearContents
+
+If ThisWorkbook.ActiveSheet.Range("B9").Value = "On Prem" Or ThisWorkbook.ActiveSheet.Range("B9").Value = "Consulting" Then
+
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/okcd").Text = "FPE3"
+session.findById("wnd[0]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/usr/ctxtRFPE1-OPBEL").Text = ""
+session.findById("wnd[0]/usr/txtRFPE1-XBLNR").Text = RefDoc
+session.findById("wnd[0]/usr/ctxtRFPE1-OPBEL").caretPosition = 0
+session.findById("wnd[0]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").selectedRows = "0"
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").clickCurrentCell
+
+session.findById("wnd[0]/tbar[1]/btn[16]").press
+session.findById("wnd[0]/usr/txtFKKKO-ERNAM").SetFocus
+
+Dim Saptext As String
+Saptext = session.findById("wnd[0]/usr/txtFKKKO-ERNAM").Text
+
+ThisWorkbook.ActiveSheet.Range("B10").Value = Saptext
+Else
+End If
+
+Reason = ThisWorkbook.ActiveSheet.Range("B9").Value
+
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/okcd").Text = "FPE3"
+session.findById("wnd[0]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/usr/ctxtRFPE1-OPBEL").Text = ""
+session.findById("wnd[0]/usr/txtRFPE1-XBLNR").Text = RefDoc
+session.findById("wnd[0]/usr/ctxtRFPE1-OPBEL").caretPosition = 0
+session.findById("wnd[0]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").selectedRows = "0"
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").clickCurrentCell
+session.findById("wnd[0]/tbar[1]/btn[39]").press
+
+On Error GoTo Multiple
+
+session.findById("wnd[1]/tbar[0]/btn[11]").press
+
+Resume1:
+
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+
+On Error GoTo 0
+
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").clickCurrentCell
+session.findById("wnd[0]/tbar[1]/btn[38]").press
+session.findById("wnd[0]/usr/btnPUSH_DISP").press
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[1]/shell/shellcont/shell").firstVisibleColumn = "LABEL1"
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[0]/shell").pressButton "TOGGLE_DISPLAY_CHANGE"
+DoEvents
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[1]/shell/shellcont/shell").setCurrentCell 3, "VALUE1"
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[1]/shell/shellcont/shell").pressF4
+
+session.findById("wnd[1]/tbar[0]/btn[17]").press
+session.findById("wnd[1]/usr/tabsG_SELONETABSTRIP/tabpTAB001/ssubSUBSCR_PRESEL:SAPLSDH4:0220/sub:SAPLSDH4:0220/txtG_SELFLD_TAB-LOW[1,24]").Text = ThisWorkbook.ActiveSheet.Range("C8").Value
+session.findById("wnd[1]/usr/tabsG_SELONETABSTRIP/tabpTAB001/ssubSUBSCR_PRESEL:SAPLSDH4:0220/sub:SAPLSDH4:0220/txtG_SELFLD_TAB-LOW[1,24]").SetFocus
+session.findById("wnd[1]/tbar[0]/btn[0]").press
+session.findById("wnd[1]/usr/cntlCUSTOM_CONTAINER/shellcont/shell").currentCellColumn = "DESCRIPTION"
+session.findById("wnd[1]/usr/cntlCUSTOM_CONTAINER/shellcont/shell").selectedRows = "0"
+session.findById("wnd[1]/usr/cntlCUSTOM_CONTAINER/shellcont/shell").doubleClickCurrentCell
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[1]/shell/shellcont/shell").pressEnter
+
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[1]/shell/shellcont/shell").currentCellRow = 4
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[1]/shell/shellcont/shell").pressF4
+session.findById("wnd[1]/usr/cntlGRID/shellcont/shell").currentCellRow = -1
+session.findById("wnd[1]/usr/cntlGRID/shellcont/shell").selectColumn "REASON_CODE"
+session.findById("wnd[1]/usr/cntlGRID/shellcont/shell").contextMenu
+session.findById("wnd[1]/usr/cntlGRID/shellcont/shell").selectContextMenuItem "&FILTER"
+session.findById("wnd[2]/usr/ssub%_SUBSCREEN_FREESEL:SAPLSSEL:1105/ctxt%%DYN001-LOW").Text = ThisWorkbook.ActiveSheet.Range("B11").Value
+session.findById("wnd[2]/usr/ssub%_SUBSCREEN_FREESEL:SAPLSSEL:1105/ctxt%%DYN001-LOW").caretPosition = 4
+session.findById("wnd[2]/tbar[0]/btn[0]").press
+session.findById("wnd[1]/usr/cntlGRID/shellcont/shell").selectedRows = "0"
+session.findById("wnd[1]/usr/cntlGRID/shellcont/shell").doubleClickCurrentCell
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[1]/shell/shellcont/shell").currentCellRow = 7
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[1]/shell/shellcont/shell").doubleClickCurrentCell
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[1]/shell/shellcont/shell").modifyCell 7, "VALUE1", ThisWorkbook.ActiveSheet.Range("B9").Value
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[1]/shell/shellcont/shell").modifyCell 8, "VALUE1", ThisWorkbook.ActiveSheet.Range("C3").Value
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[1]/shell/shellcont/shell").modifyCell 8, "VALUE2", ThisWorkbook.ActiveSheet.Range("C4").Value
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[1]/shell/shellcont/shell").modifyCell 9, "VALUE1", ThisWorkbook.ActiveSheet.Range("C5").Value
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[1]/shell/shellcont/shell").modifyCell 10, "VALUE1", ThisWorkbook.ActiveSheet.Range("C7").Value
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[1]/shell/shellcont/shell").setCurrentCell 13, "TEXT1"
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[1]/shell/shellcont/shell").modifyCell 3, "VALUE2", ThisWorkbook.ActiveSheet.Range("C6").Value
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[1]/shell/shellcont/shell").setCurrentCell 3, "VALUE2"
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[0]/shell").pressButton "SAVE"
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[0]/shell").pressButton "RESI"
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[2]/shell/shellcont[0]/shell").pressButton "SUBCOMPONENT_NOTES"
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[2]/shell/shellcont[2]/shell/shellcont[1]/shell/shellcont[1]/shell/shellcont[1]/shell").Text = ThisWorkbook.ActiveSheet.Range("C15").Value
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[2]/shell/shellcont[2]/shell/shellcont[1]/shell/shellcont[1]/shell/shellcont[1]/shell").setSelectionIndexes 227, 227
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[0]/shell").pressButton "SAVE"
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[2]/shell/shellcont[2]/shell/shellcont[1]/shell/shellcont[1]/shell/shellcont[1]/shell").setSelectionIndexes 0, 0
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[2]/shell/shellcont[0]/shell").pressButton "SUBCOMPONENT_RECORD"
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[2]/shell/shellcont[2]/shell/shellcont[0]/shell/shellcont[1]/shell").expandNode "       1118"
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[2]/shell/shellcont[2]/shell/shellcont[0]/shell/shellcont[1]/shell").selectedNode = "       1138"
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[2]/shell/shellcont[2]/shell/shellcont[0]/shell/shellcont[1]/shell").topNode = "        644"
+session.findById("wnd[0]").Restore
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[2]/shell/shellcont[2]/shell/shellcont[0]/shell/shellcont[1]/shell").selectedNode = "       1138"
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[2]/shell/shellcont[2]/shell/shellcont[0]/shell/shellcont[1]/shell").nodeContextMenu "       1138"
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[2]/shell/shellcont[2]/shell/shellcont[0]/shell/shellcont[1]/shell").selectContextMenuItem "CC252A82270FE64DA1120DB97B023185"
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont[0]/shell").pressContextButton "NEW_APP"
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont[0]/shell").selectContextMenuItem "CREATE_NEW"
+
+    Set WshShell = CreateObject("WScript.Shell")
+
+session.findById("wnd[1]/usr/txtDY_PATH").Text = WshShell.SpecialFolders("Desktop")
+session.findById("wnd[1]/usr/txtDY_FILENAME").Text = "comms.msg"
+session.findById("wnd[1]/usr/txtDY_FILENAME").caretPosition = 9
+session.findById("wnd[1]/tbar[0]/btn[0]").press
+session.findById("wnd[1]/usr/cntl0100_CONTAINER/shellcont/shell").modifyCell 1, "VALUE_OUT1", ThisWorkbook.ActiveSheet.Range("C16").Value
+session.findById("wnd[1]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[0]/shell").pressButton "RESI"
+
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+
+GoTo Skiperrorhandler
+
+Multiple:
+session.findById("wnd[1]/usr/lbl[41,3]").SetFocus
+session.findById("wnd[1]/usr/lbl[41,3]").caretPosition = 7
+session.findById("wnd[1]").sendVKey 2
+session.findById("wnd[1]/tbar[0]/btn[0]").press
+session.findById("wnd[1]/tbar[0]/btn[11]").press
+GoTo Resume1
+
+Skiperrorhandler:
+
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[0]/shell").pressButton "SAVE"
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+
+
+If ThisWorkbook.ActiveSheet.Range("B9").Value = "" Then MsgBox "Dispute case complete. - Missing person Responsible", vbExclamation Else MsgBox "Dispute case complete.", vbInformation
+
+End Sub
+
+
+
+Sub AutomaticEditdis()
+    Dim SapGuiAuto As Object
+    Dim SAPApp As Object
+    Dim SAPCon As Object
+    Dim session As Object
+    Dim SAPGuiSession As Object
+    Set SapGuiAuto = GetObject("SAPGUI")
+    Set SAPApp = SapGuiAuto.GetScriptingEngine
+    Set SAPCon = SAPApp.Children(0)
+    Set session = SAPCon.Children(0)
+
+Dim RefDoc As String
+Dim Persresp As String
+Dim Cathegory As String
+Dim Status As String
+Dim Text As String
+Dim ConPers As String
+Dim ConPersEmail As String
+Dim Priority As String
+Dim att1 As String
+Dim att2 As String
+Dim Reason As String
+Dim WshShell As Object
+Set WshShell = CreateObject("WScript.Shell")
+
+Priority = ThisWorkbook.ActiveSheet.Range("C8").Value
+ConPers = ThisWorkbook.ActiveSheet.Range("B3").Value
+ConPersEmail = ThisWorkbook.ActiveSheet.Range("B4").Value
+RefDoc = ThisWorkbook.ActiveSheet.Range("C2").Value
+persrep = ThisWorkbook.ActiveSheet.Range("B5").Value
+Cathegory = ThisWorkbook.ActiveSheet.Range("B6").Value
+Status = ThisWorkbook.ActiveSheet.Range("B7").Value
+Text = ThisWorkbook.ActiveSheet.Range("C15").Value
+att1 = ThisWorkbook.ActiveSheet.Range("B17").Value
+att2 = ThisWorkbook.ActiveSheet.Range("B18").Value
+Reason = ThisWorkbook.ActiveSheet.Range("B9").Value
+
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/okcd").Text = "FPE3"
+session.findById("wnd[0]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/usr/ctxtRFPE1-OPBEL").Text = ""
+session.findById("wnd[0]/usr/txtRFPE1-XBLNR").Text = RefDoc
+session.findById("wnd[0]/usr/ctxtRFPE1-OPBEL").caretPosition = 0
+session.findById("wnd[0]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").selectedRows = "0"
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").clickCurrentCell
+session.findById("wnd[0]/tbar[1]/btn[38]").press
+
+
+session.findById("wnd[0]/usr/btnPUSH_DISP").press
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[1]/shell/shellcont/shell").firstVisibleColumn = "LABEL1"
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[0]/shell").pressButton "TOGGLE_DISPLAY_CHANGE"
+DoEvents
+'changes start here
+If ThisWorkbook.ActiveSheet.Range("C8").Value = "" Then GoTo Skip1
+
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[1]/shell/shellcont/shell").setCurrentCell 3, "VALUE1"
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[1]/shell/shellcont/shell").pressF4
+
+session.findById("wnd[1]/tbar[0]/btn[17]").press
+session.findById("wnd[1]/usr/tabsG_SELONETABSTRIP/tabpTAB001/ssubSUBSCR_PRESEL:SAPLSDH4:0220/sub:SAPLSDH4:0220/txtG_SELFLD_TAB-LOW[1,24]").Text = ThisWorkbook.ActiveSheet.Range("C8").Value
+session.findById("wnd[1]/usr/tabsG_SELONETABSTRIP/tabpTAB001/ssubSUBSCR_PRESEL:SAPLSDH4:0220/sub:SAPLSDH4:0220/txtG_SELFLD_TAB-LOW[1,24]").SetFocus
+session.findById("wnd[1]/tbar[0]/btn[0]").press
+session.findById("wnd[1]/usr/cntlCUSTOM_CONTAINER/shellcont/shell").currentCellColumn = "DESCRIPTION"
+session.findById("wnd[1]/usr/cntlCUSTOM_CONTAINER/shellcont/shell").selectedRows = "0"
+session.findById("wnd[1]/usr/cntlCUSTOM_CONTAINER/shellcont/shell").doubleClickCurrentCell
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[1]/shell/shellcont/shell").pressEnter
+
+Skip1:
+If ThisWorkbook.ActiveSheet.Range("C11").Value = "" Then GoTo SKIP2
+
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[1]/shell/shellcont/shell").currentCellRow = 4
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[1]/shell/shellcont/shell").pressF4
+session.findById("wnd[1]/usr/cntlGRID/shellcont/shell").currentCellRow = -1
+session.findById("wnd[1]/usr/cntlGRID/shellcont/shell").selectColumn "REASON_CODE"
+session.findById("wnd[1]/usr/cntlGRID/shellcont/shell").contextMenu
+session.findById("wnd[1]/usr/cntlGRID/shellcont/shell").selectContextMenuItem "&FILTER"
+session.findById("wnd[2]/usr/ssub%_SUBSCREEN_FREESEL:SAPLSSEL:1105/ctxt%%DYN001-LOW").Text = ThisWorkbook.ActiveSheet.Range("B11").Value
+session.findById("wnd[2]/usr/ssub%_SUBSCREEN_FREESEL:SAPLSSEL:1105/ctxt%%DYN001-LOW").caretPosition = 4
+session.findById("wnd[2]/tbar[0]/btn[0]").press
+session.findById("wnd[1]/usr/cntlGRID/shellcont/shell").selectedRows = "0"
+session.findById("wnd[1]/usr/cntlGRID/shellcont/shell").doubleClickCurrentCell
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[1]/shell/shellcont/shell").currentCellRow = 7
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[1]/shell/shellcont/shell").doubleClickCurrentCell
+
+SKIP2:
+
+If ThisWorkbook.ActiveSheet.Range("B9").Value = "" Then GoTo Skip3
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[1]/shell/shellcont/shell").modifyCell 7, "VALUE1", ThisWorkbook.ActiveSheet.Range("B9").Value
+Skip3:
+
+If ThisWorkbook.ActiveSheet.Range("C3").Value = "" Then GoTo Skip4
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[1]/shell/shellcont/shell").modifyCell 8, "VALUE1", ThisWorkbook.ActiveSheet.Range("C3").Value
+Skip4:
+
+If ThisWorkbook.ActiveSheet.Range("C4").Value = "" Then GoTo Skip5
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[1]/shell/shellcont/shell").modifyCell 7, "VALUE2", ThisWorkbook.ActiveSheet.Range("C4").Value
+Skip5:
+
+If ThisWorkbook.ActiveSheet.Range("C5").Value = "" Then GoTo Skip6
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[1]/shell/shellcont/shell").modifyCell 9, "VALUE1", ThisWorkbook.ActiveSheet.Range("C5").Value
+Skip6:
+
+If ThisWorkbook.ActiveSheet.Range("C7").Value = "" Then GoTo Skip7
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[1]/shell/shellcont/shell").modifyCell 10, "VALUE1", ThisWorkbook.ActiveSheet.Range("C7").Value
+Skip7:
+
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[1]/shell/shellcont/shell").setCurrentCell 13, "TEXT1"
+
+If ThisWorkbook.ActiveSheet.Range("C6").Value = "" Then GoTo Skip8
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[1]/shell/shellcont/shell").modifyCell 3, "VALUE2", ThisWorkbook.ActiveSheet.Range("C6").Value
+Skip8:
+
+If ThisWorkbook.ActiveSheet.Range("C15").Value = "" Then GoTo Skip9
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[1]/shell/shellcont/shell").setCurrentCell 3, "VALUE2"
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[0]/shell").pressButton "SAVE"
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[0]/shell").pressButton "RESI"
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[2]/shell/shellcont[0]/shell").pressButton "SUBCOMPONENT_NOTES"
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[2]/shell/shellcont[2]/shell/shellcont[1]/shell/shellcont[1]/shell/shellcont[1]/shell").Text = ThisWorkbook.ActiveSheet.Range("C15").Value
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[2]/shell/shellcont[2]/shell/shellcont[1]/shell/shellcont[1]/shell/shellcont[1]/shell").setSelectionIndexes 227, 227
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[0]/shell").pressButton "SAVE"
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[2]/shell/shellcont[2]/shell/shellcont[1]/shell/shellcont[1]/shell/shellcont[1]/shell").setSelectionIndexes 0, 0
+Skip9:
+
+
+If ThisWorkbook.ActiveSheet.Range("C16").Value = "" Then GoTo Skip10
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[2]/shell/shellcont[0]/shell").pressButton "SUBCOMPONENT_RECORD"
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[2]/shell/shellcont[2]/shell/shellcont[0]/shell/shellcont[1]/shell").expandNode "       1118"
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[2]/shell/shellcont[2]/shell/shellcont[0]/shell/shellcont[1]/shell").selectedNode = "       1138"
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[2]/shell/shellcont[2]/shell/shellcont[0]/shell/shellcont[1]/shell").topNode = "        644"
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[2]/shell/shellcont[2]/shell/shellcont[0]/shell/shellcont[1]/shell").doubleClickNode "       1138"
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont[0]/shell").pressContextButton "NEW_APP"
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont[0]/shell").selectContextMenuItem "CREATE_NEW"
+    Set WshShell = CreateObject("WScript.Shell")
+
+session.findById("wnd[1]/usr/txtDY_PATH").Text = WshShell.SpecialFolders("Desktop")
+session.findById("wnd[1]/usr/txtDY_FILENAME").Text = "comms.msg"
+session.findById("wnd[1]/usr/txtDY_FILENAME").caretPosition = 9
+session.findById("wnd[1]/tbar[0]/btn[0]").press
+session.findById("wnd[1]/usr/cntl0100_CONTAINER/shellcont/shell").modifyCell 1, "VALUE_OUT1", ThisWorkbook.ActiveSheet.Range("C16").Value
+session.findById("wnd[1]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[0]/shell").pressButton "RESI"
+Skip10:
+
+session.findById("wnd[0]/usr/cntlCLFRM_CONTAINER/shellcont/shell/shellcont[1]/shell/shellcont/shell/shellcont[0]/shell").pressButton "SAVE"
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+
+MsgBox "Edits implemented", vbInformation
+
+End Sub
+
+
+

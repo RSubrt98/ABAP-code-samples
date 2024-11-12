@@ -1,0 +1,348 @@
+Sub boopbeep()
+    Dim SapGuiAuto As Object
+    Dim SAPApp As Object
+    Dim SAPCon As Object
+    Dim session As Object
+    Dim SAPGuiSession As Object
+        Dim GridView As Object
+
+    ' Initialize the SAP GUI Scripting objects
+    Set SapGuiAuto = GetObject("SAPGUI")
+    Set SAPApp = SapGuiAuto.GetScriptingEngine
+    Set SAPCon = SAPApp.Children(0)
+    Set session = SAPCon.Children(0)
+    Dim CollectorID As String
+    
+    CollectorID = ActiveWorkbook.ActiveSheet.Range("B1").Value
+
+    Dim userResponse As VbMsgBoxResult
+   'sets off manual calcs
+    Application.Calculation = xlManual
+    ' Display a message box with Yes and No options
+    userResponse = MsgBox("Hello, have you filled in your personal ID?", vbYesNo + vbQuestion, "User Confirmation")
+    
+    ' Check the user's response
+    If userResponse = vbYes Then
+        ' If the user clicked Yes, proceed with the macro
+        MsgBox "Thank youu ;)", vbInformation
+        
+    
+'return to menu
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+
+session.findById("wnd[0]/tbar[0]/okcd").Text = "ZFCA0_1352"
+session.findById("wnd[0]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/usr/ctxtS_STDBK-LOW").Text = "0003"
+session.findById("wnd[0]/usr/btn%_S_STDBK_%_APP_%-VALU_PUSH").press
+session.findById("wnd[1]/usr/tabsTAB_STRIP/tabpSIVA/ssubSCREEN_HEADER:SAPLALDB:3010/tblSAPLALDBSINGLE/ctxtRSCSEL_255-SLOW_I[1,1]").Text = "0002"
+session.findById("wnd[1]/usr/tabsTAB_STRIP/tabpSIVA/ssubSCREEN_HEADER:SAPLALDB:3010/tblSAPLALDBSINGLE/ctxtRSCSEL_255-SLOW_I[1,2]").Text = "0853"
+session.findById("wnd[1]/usr/tabsTAB_STRIP/tabpSIVA/ssubSCREEN_HEADER:SAPLALDB:3010/tblSAPLALDBSINGLE/ctxtRSCSEL_255-SLOW_I[1,3]").Text = "0023"
+session.findById("wnd[1]/tbar[0]/btn[8]").press
+session.findById("wnd[0]/usr/txtS_AGENT-LOW").Text = CollectorID
+session.findById("wnd[0]/tbar[1]/btn[8]").press
+
+
+'download
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell").currentCellRow = -1
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell").selectColumn "GPART"
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell").contextMenu
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell").selectContextMenuItem "&XXL"
+session.findById("wnd[1]/tbar[0]/btn[20]").press
+session.findById("wnd[1]/tbar[0]/btn[0]").press
+
+    
+' Record the initial number of open workbooks
+    initialWorkbookCount = Application.Workbooks.Count
+    
+    ' Set the maximum wait time (10 seconds)
+    maxWaitTime = 100
+    startTime = Timer
+    
+    ' Wait until a new workbook is added or the time limit is reached
+    Do While Application.Workbooks.Count <= initialWorkbookCount
+        DoEvents  ' Allow Excel to process other events
+        If Timer > startTime + maxWaitTime Then
+            MsgBox "New workbook did not open within the expected time.", vbExclamation
+            Exit Sub
+        End If
+    Loop
+    
+    ' The new workbook is now the last one added
+    Set NewWorkbook = Application.Workbooks(Application.Workbooks.Count)
+    ' Activate the new workbook
+    NewWorkbook.Activate
+    
+    ' Set the worksheet to the first sheet in the new workbook
+    Set ws = NewWorkbook.Sheets(1)
+    
+    ' Define the header text you're looking for
+    headerText = "Business Partner"
+    
+    ' Search for the header text in the first row
+    Set Header = ws.Rows(1).Find(What:=headerText, LookIn:=xlValues, LookAt:=xlWhole)
+    
+    ' Check if the header was found
+    If Not Header Is Nothing Then
+        ' Select the entire column where the header was found
+        Header.EntireColumn.Select
+        
+        ' Remove duplicates in the selected column, assuming the header is in row 1
+        ActiveSheet.Range(Header.EntireColumn.Address).RemoveDuplicates Columns:=1, Header:=xlYes
+        
+        ' Copy the selected cells to the clipboard
+        Selection.Copy
+    Else
+        MsgBox "Header 'Business Partner' not found."
+    End If
+    
+'From now on usable
+session.findById("wnd[0]/tbar[0]/btn[15]").press
+session.findById("wnd[0]/tbar[0]/btn[15]").press
+session.findById("wnd[0]/tbar[0]/okcd").Text = "FPL9"
+session.findById("wnd[0]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/usr/btnPUSH_RGPA").press
+session.findById("wnd[1]/tbar[0]/btn[16]").press
+session.findById("wnd[1]/tbar[0]/btn[24]").press
+session.findById("wnd[1]/tbar[0]/btn[8]").press
+session.findById("wnd[0]/usr/btnPUSH_RBUK").press
+session.findById("wnd[1]/usr/tabsTAB_STRIP/tabpSIVA/ssubSCREEN_HEADER:SAPLALDB:3010/tblSAPLALDBSINGLE/ctxtRSCSEL_255-SLOW_I[1,0]").Text = "0002"
+session.findById("wnd[1]/usr/tabsTAB_STRIP/tabpSIVA/ssubSCREEN_HEADER:SAPLALDB:3010/tblSAPLALDBSINGLE/ctxtRSCSEL_255-SLOW_I[1,1]").Text = "0023"
+session.findById("wnd[1]/usr/tabsTAB_STRIP/tabpSIVA/ssubSCREEN_HEADER:SAPLALDB:3010/tblSAPLALDBSINGLE/ctxtRSCSEL_255-SLOW_I[1,2]").Text = "0003"
+session.findById("wnd[1]/usr/tabsTAB_STRIP/tabpSIVA/ssubSCREEN_HEADER:SAPLALDB:3010/tblSAPLALDBSINGLE/ctxtRSCSEL_255-SLOW_I[1,3]").Text = "0853"
+session.findById("wnd[1]/tbar[0]/btn[8]").press
+session.findById("wnd[0]/usr/cmbFKKL1-LSTYP").Key = "AUSGL"
+session.findById("wnd[0]/tbar[1]/btn[7]").press
+session.findById("wnd[1]/usr/radFKKL1-RPALLN").Select
+session.findById("wnd[1]/usr/radFKKL1-CLALLN").Select
+session.findById("wnd[1]/usr/txtFKKL1-RPTOL_LONG").Text = "10"
+session.findById("wnd[1]/usr/txtFKKL1-CLTOL_LONG").Text = "120"
+session.findById("wnd[1]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/tbar[0]/btn[0]").press
+On Error GoTo Error1
+
+session.findById("wnd[0]/mbar/menu[3]/menu[10]").Select
+On Error GoTo 0 ' Disable error handling
+GoTo ContinueExecution ' Skip to the continuation of your main code
+Error1:
+session.findById("wnd[1]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/mbar/menu[3]/menu[10]").Select
+On Error GoTo 0
+ContinueExecution:
+'layout
+session.findById("wnd[0]/tbar[1]/btn[33]").press
+session.findById("wnd[1]/usr/subSUB_CONFIGURATION:SAPLSALV_CUL_LAYOUT_CHOOSE:0500/cntlD500_CONTAINER/shellcont/shell").currentCellRow = -1
+session.findById("wnd[1]/usr/subSUB_CONFIGURATION:SAPLSALV_CUL_LAYOUT_CHOOSE:0500/cntlD500_CONTAINER/shellcont/shell").selectColumn "VARIANT"
+session.findById("wnd[1]/usr/subSUB_CONFIGURATION:SAPLSALV_CUL_LAYOUT_CHOOSE:0500/cntlD500_CONTAINER/shellcont/shell").selectedRows = ""
+session.findById("wnd[1]/usr/subSUB_CONFIGURATION:SAPLSALV_CUL_LAYOUT_CHOOSE:0500/cntlD500_CONTAINER/shellcont/shell").contextMenu
+session.findById("wnd[1]/usr/subSUB_CONFIGURATION:SAPLSALV_CUL_LAYOUT_CHOOSE:0500/cntlD500_CONTAINER/shellcont/shell").selectContextMenuItem "&FILTER"
+session.findById("wnd[2]/usr/ssub%_SUBSCREEN_FREESEL:SAPLSSEL:1105/ctxt%%DYN001-LOW").Text = "/DACH Rö"
+session.findById("wnd[2]/usr/ssub%_SUBSCREEN_FREESEL:SAPLSSEL:1105/ctxt%%DYN001-LOW").caretPosition = 10
+session.findById("wnd[2]/tbar[0]/btn[0]").press
+session.findById("wnd[1]/usr/subSUB_CONFIGURATION:SAPLSALV_CUL_LAYOUT_CHOOSE:0500/cntlD500_CONTAINER/shellcont/shell").selectedRows = "0"
+session.findById("wnd[1]/usr/subSUB_CONFIGURATION:SAPLSALV_CUL_LAYOUT_CHOOSE:0500/cntlD500_CONTAINER/shellcont/shell").clickCurrentCell
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").setCurrentCell 6, "VKBEZ_SC"
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").selectedRows = "1"
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").contextMenu
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").selectContextMenuItem "&XXL"
+session.findById("wnd[1]/tbar[0]/btn[20]").press
+session.findById("wnd[1]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/tbar[0]/btn[15]").press
+session.findById("wnd[0]/tbar[0]/btn[15]").press
+
+    
+    ' Record the initial number of open workbooks
+    initialWorkbookCount = Application.Workbooks.Count
+    
+    ' Set the maximum wait time (10 seconds)
+    maxWaitTime = 10
+    startTime = Timer
+    
+    ' Wait until a new workbook is added or the time limit is reached
+    Do While Application.Workbooks.Count <= initialWorkbookCount
+        DoEvents  ' Allow Excel to process other events
+        If Timer > startTime + maxWaitTime Then
+            MsgBox "New workbook did not open within the expected time.", vbExclamation
+            Exit Sub
+        End If
+    Loop
+    
+    ' The new workbook is now the last one added
+    Set NewWorkbook = Application.Workbooks(Application.Workbooks.Count)
+    
+    ' Activate the new workbook
+    NewWorkbook.Activate
+    
+    ' Select all cells in the active sheet of the new workbook
+    NewWorkbook.Sheets(1).Cells.Select
+    
+    
+    Dim lastRow As Long
+    Dim i As Long
+    
+    ' Set the target sheet (modify as needed)
+    Set ws = NewWorkbook.Sheets("Data")
+    
+    ' Determine the last row with data in the worksheet
+    lastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
+    
+    ' Loop through rows from the bottom up to avoid skipping rows after deletion
+    For i = lastRow To 1 Step -1
+        If IsEmpty(ws.Cells(i, 1).Value) Then
+            ws.Rows(i).Delete
+        End If
+    Next i
+       NewWorkbook.Sheets(1).Cells.Select
+    Selection.Copy
+        Else
+        ' If the user clicked No, exit the macro
+        MsgBox "Operation cancelled.", vbExclamation
+        Exit Sub
+    End If
+    
+    Dim wb As Workbook
+    Dim targetRange As Range
+    
+
+    On Error Resume Next
+    Set wb = ThisWorkbook
+    On Error GoTo 0
+    
+    If wb Is Nothing Then
+        MsgBox "Workbook 'Bezahlte Rechnungen.xlsm' is not open.", vbExclamation
+        Exit Sub
+    End If
+    
+    ' Set the target sheet
+    Set ws = wb.Sheets("Data2")
+    
+    ' Set the target range where you want to paste the clipboard content (e.g., starting at A1)
+    Set targetRange = ws.Range("A1")
+    
+    ' Activate the target sheet
+    ws.Activate
+    
+    ' Select the target range
+    targetRange.Select
+    
+    ' Paste the clipboard content into the selected range
+    ws.Paste Destination:=targetRange
+    ws.Rows(1).Delete
+    
+    ' Loop through all open workbooks
+For Each wb In Application.Workbooks
+    ' Close the workbook if it is not the workbook containing the code
+    If Not wb Is ThisWorkbook Then
+        wb.Close SaveChanges:=False
+    End If
+Next wb
+
+    Set wb = ThisWorkbook
+
+ ' Set the target sheet
+    Set ws = wb.Sheets("Data2")
+    Dim searchValue As String
+    Dim found As Boolean
+    ' Define the value you're looking for
+    searchValue = "Business Partner"
+    
+    ' Find the last used row in column A
+    lastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
+    
+    ' Loop through rows from the top and delete until the "business partner" is found
+    For i = 1 To lastRow
+        If ws.Cells(i, 1).Value = searchValue Then
+            found = True
+            Exit For ' Stop loop once "business partner" is found
+        End If
+        ws.Rows(i).Delete
+        i = i - 1
+        lastRow = lastRow - 1
+    Next i
+    If Not found Then
+    End If
+
+    ' Step 2: Delete specified columns based on headers
+    Dim headersToDelete As Variant
+    headersToDelete = Array( _
+        "Traffic Light", _
+        "Description", _
+        "Dispute Case", _
+        "Closed Disputes Exists", _
+        "Substitute Document", _
+        "Sales Document", _
+        "Corresp. Recipient", _
+        "Contract Account", _
+        "Still open", _
+        "PO Number", _
+        "Deviating Bill-To (NGBC)")
+
+    ' Get the last column in row 1
+    Dim lastCol As Long
+    lastCol = ws.Cells(1, ws.Columns.Count).End(xlToLeft).Column
+
+    ' Loop through each column from the last to the first
+    Dim col As Long
+    For col = lastCol To 1 Step -1
+        ' Check if the header of the current column matches any of the headers to delete
+        If Not IsError(Application.Match(ws.Cells(1, col).Value, headersToDelete, 0)) Then
+            ' Delete the column
+            ws.Columns(col).Delete
+            
+        End If
+    Next col
+    Set ws = ThisWorkbook.Sheets("Data2")
+    'sem insert
+        Columns("M:M").Select
+    Selection.Insert Shift:=xlToRight, CopyOrigin:=xlFormatFromLeftOrAbove
+      Range("M2").Select
+        ActiveCell.FormulaR1C1 = "=SUMIFS(C[-6],C[-10],RC[-10])"
+          lastRow = Cells(Rows.Count, "A").End(xlUp).Row
+            Set SourceRange = Selection ' Assumes the selected range is the one you want to fill
+    Set fillRange = SourceRange.Resize(lastRow - SourceRange.Row + 1)
+    SourceRange.AutoFill Destination:=fillRange
+    
+    Calculate
+    Range("G1").Select
+    Selection.Copy
+    Range("M1").Select
+    ActiveSheet.Paste
+    Columns("M:M").ColumnWidth = 8.29
+    Columns("M:M").Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Columns("G:G").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+    Columns("M:M").Select
+    Application.CutCopyMode = False
+    Selection.Delete Shift:=xlToLeft
+    Cells.Select
+    Range("G1").Activate
+    ActiveSheet.Range("$A$1:$M$2803").RemoveDuplicates Columns:=3, Header:= _
+   xlYes
+    
+       Set ws = ThisWorkbook.Sheets("Report paid early")
+    ' Define the formula text (using double quotes for VBA string handling)
+      formulaText2 = "=IFERROR(FILTER(Data2!A2:M9999, (Data2!D2:D9999<>"""") * ((LEFT(Data2!L2:L9999,1)=""8"") + (LEFT(Data2!L2:L9999,1)=""4"")) * (Data2!K2:K9999>TODAY()-L1) * (SUMIFS(Data2!G2:G9999,Data2!C2:C9999,Data2!C2:C9999)>J1)), ""no invoices over 500 000 paid in the last 10 days"")"
+    ' Input the formula into cell A3
+    ws.Range("A3").Formula2 = formulaText2
+    
+    'calculates sheet
+    Calculate
+    Application.Calculation = xlAutomatic
+With Sheets("Report paid early").Range("E:E,F:F,K:K")
+    .NumberFormat = "dd.mm.yyyy"
+End With
+Sheets("Report paid early").Select
+           MsgBox "Script complete"
+End Sub
+
+

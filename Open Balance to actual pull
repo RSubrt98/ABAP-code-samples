@@ -20,6 +20,7 @@ CompanyCode = ActiveWorkbook.ActiveSheet.Range("B2").Value
 'clearing my sheeet
 ws.Range("A3:O20000").ClearContents
 'reset back to menu
+ActiveWorkbook.ActiveSheet.Range("H1").Value = "Processing..."
 session.findById("wnd[0]/tbar[0]/btn[3]").press
 session.findById("wnd[0]/tbar[0]/btn[3]").press
 session.findById("wnd[0]/tbar[0]/btn[3]").press
@@ -175,7 +176,11 @@ ActiveCell.FormulaR1C1 = "=SUMIFS(C[-7],C[-11],RC[-11])"
      lastRow = Cells(Rows.Count, "A").End(xlUp).Row
          Set sourceRange = Selection
     Set fillRange = sourceRange.Resize(lastRow - sourceRange.Row + 1)
+    On Error GoTo Singlepass
+        
      sourceRange.AutoFill Destination:=fillRange
+     On Error GoTo 0
+     
      Calculate
     Range("H3").Select
     Selection.Copy
@@ -191,11 +196,10 @@ ActiveCell.FormulaR1C1 = "=SUMIFS(C[-7],C[-11],RC[-11])"
     Selection.Delete Shift:=xlToLeft
     ActiveSheet.Range("$A$3:$O$9999").RemoveDuplicates Columns:=4, Header:=xlYes
     'number formatting
-Range("A1").Select
-Range("F4", "G50000").NumberFormat = "dd.mm.yyyy"
-Range("H4", "H50000").NumberFormat = "_-* #,##0.00 _K_c_-;-* #,##0.00 _K_c_-;_-* ""-""?? _K_c_-;_-@_-"
+ActiveWorkbook.ActiveSheet.Range("F4", "G50000").NumberFormat = "dd.mm.yyyy"
+ActiveWorkbook.ActiveSheet.Range("I4", "I50000").NumberFormat = "_-* #,##0.00 _K_c_-;-* #,##0.00 _K_c_-;_-* ""-""?? _K_c_-;_-@_-"
 'condi formatting
-    Columns("J:J").Select
+    Columns("H:J").Select
     Cells.FormatConditions.Delete
     Columns("J:J").Select
     Selection.FormatConditions.AddColorScale ColorScaleType:=3
@@ -225,10 +229,325 @@ session.findById("wnd[0]/tbar[0]/btn[3]").press
 session.findById("wnd[0]/tbar[0]/btn[3]").press
 session.findById("wnd[0]/tbar[0]/btn[3]").press
 session.findById("wnd[0]/tbar[0]/btn[3]").press
+
     MsgBox "No open entries found", vbInformation, "Message"
 Boop:
-    
-    
+Singlepass:
+Columns("O:O").ClearContents
+    Range("H1").ClearContents
     
     End Sub
+
+Sub L()
+Range("F4", "G50000").NumberFormat = "dd.mm.yyyy"
+Range("I4", "I50000").NumberFormat = "_-* #,##0.00 _K_c_-;-* #,##0.00 _K_c_-;_-* ""-""?? _K_c_-;_-@_-"
+End Sub
+
+Sub Clearcont()
+Dim ws As Worksheet
+    Set ws = ThisWorkbook.Sheets("OP")
+'clearing my sheeet
+ws.Range("A3:O20000").ClearContents
+End Sub
+
+
+Sub Macro4()
+'
+' Macro4 Macro
+'
+
+'
+    Sheets("Email").Select
+    Sheets("datval").Visible = True
+    Sheets("datval").Select
+    ActiveWindow.SelectedSheets.Visible = False
+End Sub
+Sub Macro5()
+'
+' Macro5 Macro
+'
+
+'
+    Range("B7:C2000").Select
+    Selection.ClearContents
+End Sub
+
+
+Sub getmailinglist()
+'in SAP to download the email list
+
+
+    Dim SapGuiAuto As Object
+    Dim SAPApp As Object
+    Dim SAPCon As Object
+    Dim session As Object
+    Dim SAPGuiSession As Object
+    Set SapGuiAuto = GetObject("SAPGUI")
+    Set SAPApp = SapGuiAuto.GetScriptingEngine
+    Set SAPCon = SAPApp.Children(0)
+    Set session = SAPCon.Children(0)
+
+Dim BP As String
+Dim CompanyCode As String
+
+     Dim ws As Worksheet
+    Set ws = ThisWorkbook.Sheets("OP")
+
+BP = ActiveWorkbook.Sheets("OP").Range("B1").Value
+CompanyCode = ActiveWorkbook.Sheets("OP").Range("B2").Value
+
+ Sheets("datval").Visible = True
+    Sheets("datval").Select
+        Range("B7:C2000").Select
+    Selection.ClearContents
+ Sheets("datval").Visible = False
+ 
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+
+session.findById("wnd[0]/tbar[0]/okcd").Text = "ZEBILLREPORT"
+session.findById("wnd[0]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/usr/ctxtSO_GPART-LOW").Text = BP
+session.findById("wnd[0]/usr/ctxtSO_VKORG-LOW").Text = ""
+session.findById("wnd[0]/usr/ctxtSO_BUKRS-LOW").Text = "0002"
+session.findById("wnd[0]/usr/txtSO_EMAIL-LOW").Text = ""
+session.findById("wnd[0]/usr/ctxtSO_PARVW-LOW").Text = "Y0"
+session.findById("wnd[0]/usr/ctxtSO_PAPER-LOW").Text = ""
+session.findById("wnd[0]/usr/ctxtSO_EMPDF-LOW").Text = ""
+session.findById("wnd[0]/usr/ctxtSO_PORTA-LOW").Text = ""
+session.findById("wnd[0]/usr/ctxtSO_OTEDI-LOW").Text = ""
+session.findById("wnd[0]/usr/ctxtSO_EDOCS-LOW").Text = ""
+session.findById("wnd[0]/usr/ctxtSO_COUNT-LOW").Text = ""
+session.findById("wnd[0]/usr/ctxtSO_COUNT-LOW").SetFocus
+session.findById("wnd[0]/usr/ctxtSO_COUNT-LOW").caretPosition = 0
+session.findById("wnd[0]/tbar[1]/btn[8]").press
+session.findById("wnd[0]/tbar[1]/btn[32]").press
+session.findById("wnd[1]/usr/tabsG_TS_ALV/tabpALV_M_R1/ssubSUB_CONFIGURATION:SAPLSALV_CUL_COLUMN_SELECTION:0620/cntlCONTAINER2_LAYO/shellcont/shell").setCurrentCell -1, ""
+session.findById("wnd[1]/usr/tabsG_TS_ALV/tabpALV_M_R1/ssubSUB_CONFIGURATION:SAPLSALV_CUL_COLUMN_SELECTION:0620/cntlCONTAINER2_LAYO/shellcont/shell").SelectAll
+session.findById("wnd[1]/usr/tabsG_TS_ALV/tabpALV_M_R1/ssubSUB_CONFIGURATION:SAPLSALV_CUL_COLUMN_SELECTION:0620/btnAPP_FL_SING").press
+session.findById("wnd[1]/usr/tabsG_TS_ALV/tabpALV_M_R1/ssubSUB_CONFIGURATION:SAPLSALV_CUL_COLUMN_SELECTION:0620/cntlCONTAINER1_LAYO/shellcont/shell").firstVisibleRow = 5
+session.findById("wnd[1]/usr/tabsG_TS_ALV/tabpALV_M_R1/ssubSUB_CONFIGURATION:SAPLSALV_CUL_COLUMN_SELECTION:0620/cntlCONTAINER1_LAYO/shellcont/shell").pressToolbarButton "&FIND"
+session.findById("wnd[2]/usr/txtGS_SEARCH-VALUE").Text = "e-mail*"
+session.findById("wnd[2]/usr/cmbGS_SEARCH-SEARCH_ORDER").Key = "0"
+session.findById("wnd[2]/usr/cmbGS_SEARCH-SEARCH_ORDER").SetFocus
+session.findById("wnd[2]/tbar[0]/btn[0]").press
+session.findById("wnd[2]/tbar[0]/btn[12]").press
+session.findById("wnd[1]/usr/tabsG_TS_ALV/tabpALV_M_R1/ssubSUB_CONFIGURATION:SAPLSALV_CUL_COLUMN_SELECTION:0620/btnAPP_WL_SING").press
+session.findById("wnd[1]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell").selectedRows = "0"
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell").contextMenu
+
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell").contextMenu
+session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell").selectContextMenuItem "&XXL"
+session.findById("wnd[1]/tbar[0]/btn[20]").press
+session.findById("wnd[1]/tbar[0]/btn[0]").press
+'
+
+
+' Record the initial number of open workbooks
+    initialWorkbookCount = Application.Workbooks.Count
     
+    ' Set the maximum wait time (10 seconds)
+    maxWaitTime = 100
+    startTime = Timer
+    
+    ' Wait until a new workbook is added or the time limit is reached
+    Do While Application.Workbooks.Count <= initialWorkbookCount
+        DoEvents  ' Allow Excel to process other events
+        If Timer > startTime + maxWaitTime Then
+            MsgBox "New workbook did not open within the expected time.", vbExclamation
+            Exit Sub
+        End If
+    Loop
+    
+    ' The new workbook is now the last one added
+    Set NewWorkbook = Application.Workbooks(Application.Workbooks.Count)
+    ' Activate the new workbook
+    NewWorkbook.Activate
+
+
+
+
+
+
+
+
+
+NewWorkbook.Sheets("data").Range("$A$1:$A$2").Copy
+    ws.Activate
+    
+    Sheets("datval").Select
+    NewWorkbook.Activate
+    NewWorkbook.Sheets("data").Range("$A$1:$A$2").Copy
+    ActiveSheet.Paste
+    Sheets("datval").Visible = False
+Sheets("Email").Select
+    Application.CutCopyMode = False
+    NewWorkbook.Close SaveChanges:=False
+    
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+'add newsheet closing command
+End Sub
+
+
+Sub SendEmailWithFormattedTable()
+
+    Dim OutlookApp As Object
+    Dim OutlookMail As Object
+    Dim wsEmail As Worksheet, wsTable As Worksheet
+    Dim cell As Range
+    Dim emailBody As String
+    Dim tableHtml As String
+    Dim tableRange As Range
+    Dim lastRow As Long
+    Dim i As Long, j As Long
+    
+    ' Set worksheets
+    Set wsEmail = ThisWorkbook.Sheets("Email")
+    Set wsTable = ThisWorkbook.Sheets("OP")
+    
+    ' Locate the last row in the "OP" sheet
+    lastRow = wsTable.Cells(wsTable.Rows.Count, "A").End(xlUp).Row
+    If lastRow >= 3 Then
+        Set tableRange = wsTable.Range("A3:J" & lastRow)
+        
+        ' Start HTML for the table
+        tableHtml = "<table border='1' style='border-collapse:collapse; font-family:Arial; font-size:12px;'>"
+        
+        ' Add headers if needed (assumes headers in row 2)
+        tableHtml = tableHtml & "<tr style='background-color:#f2f2f2;'>"
+        For j = 1 To tableRange.Columns.Count
+            tableHtml = tableHtml & "<th style='padding:5px;'>" & wsTable.Cells(2, j).Value & "</th>"
+        Next j
+        tableHtml = tableHtml & "</tr>"
+        
+        ' Add rows dynamically
+        For i = 1 To tableRange.Rows.Count
+            tableHtml = tableHtml & "<tr>"
+            For j = 1 To tableRange.Columns.Count
+                tableHtml = tableHtml & "<td style='padding:5px;'>" & tableRange.Cells(i, j).Value & "</td>"
+            Next j
+            tableHtml = tableHtml & "</tr>"
+        Next i
+        
+        tableHtml = tableHtml & "</table>"
+    Else
+        tableHtml = "<p>No table data found.</p>"
+    End If
+    
+    ' Construct the email body
+    emailBody = "<html><body>"
+    emailBody = emailBody
+    
+    ' Add paragraphs from D2:D10
+    For Each cell In wsEmail.Range("D3:D100")
+        If cell.Value <> "" Then
+            emailBody = emailBody & "<p>" & cell.Value & "</p>"
+        End If
+    Next cell
+    
+    ' Append the HTML table to the email body
+    emailBody = emailBody & tableHtml
+    emailBody = emailBody & "<p>Best regards,<br>Your Name</p>"
+    emailBody = emailBody & "</body></html>"
+    
+    ' Initialize Outlook application
+    Set OutlookApp = CreateObject("Outlook.Application")
+    Set OutlookMail = OutlookApp.CreateItem(0)
+    
+    ' Configure the email
+    With OutlookMail
+        .To = ThisWorkbook.Sheets("Email").Range("A2").Value
+        .subject = ThisWorkbook.Sheets("Email").Range("C2").Value
+        .HTMLBody = emailBody
+        .Display ' Use .Send to send directly
+    End With
+    
+    ' Clean up
+    Set OutlookMail = Nothing
+    Set OutlookApp = Nothing
+
+End Sub
+
+Sub SendEmailWithFormattedTableExcludingRows1And2()
+
+    Dim OutlookApp As Object
+    Dim OutlookMail As Object
+    Dim wsEmail As Worksheet, wsTable As Worksheet
+    Dim cell As Range
+    Dim emailBody As String
+    Dim tableHtml As String
+    Dim tableRange As Range
+    Dim lastRow As Long
+    Dim i As Long, j As Long
+    
+    ' Set worksheets
+    Set wsEmail = ThisWorkbook.Sheets("Email")
+    Set wsTable = ThisWorkbook.Sheets("OP")
+    
+    ' Locate the last row in the "OP" sheet
+    lastRow = wsTable.Cells(wsTable.Rows.Count, "A").End(xlUp).Row
+    If lastRow >= 3 Then
+        ' Define the range from A3 to H(lastRow), excluding rows 1 and 2
+        Set tableRange = wsTable.Range("A3:J" & lastRow)
+        
+        ' Start HTML for the table
+        tableHtml = "<table border='1' style='border-collapse:collapse; font-family:Arial; font-size:12px;'>"
+        
+        ' Add rows dynamically
+        For i = 1 To tableRange.Rows.Count
+            tableHtml = tableHtml & "<tr>"
+            For j = 1 To tableRange.Columns.Count
+                tableHtml = tableHtml & "<td style='padding:5px;'>" & tableRange.Cells(i, j).Value & "</td>"
+            Next j
+            tableHtml = tableHtml & "</tr>"
+        Next i
+        
+        tableHtml = tableHtml & "</table>"
+    Else
+        tableHtml = "<p>No table data found.</p>"
+    End If
+    
+    ' Construct the email body
+    emailBody = "<html><body>"
+    emailBody = emailBody
+    
+    ' Add paragraphs from D2:D10
+    For Each cell In wsEmail.Range("D2:D10")
+        If cell.Value <> "" Then
+            emailBody = emailBody & "<p>" & cell.Value & "</p>"
+        End If
+    Next cell
+    
+    ' Append the HTML table to the email body
+    emailBody = emailBody & tableHtml
+    emailBody = emailBody
+    emailBody = emailBody & "</body></html>"
+    
+    ' Initialize Outlook application
+    Set OutlookApp = CreateObject("Outlook.Application")
+    Set OutlookMail = OutlookApp.CreateItem(0)
+    
+    ' Configure the email
+    With OutlookMail
+        .To = ThisWorkbook.Sheets("Email").Range("A2").Value
+        .subject = ThisWorkbook.Sheets("Email").Range("C2").Value
+        .HTMLBody = emailBody
+        .Display ' Use .Send to send directly
+    End With
+    
+    ' Clean up
+    Set OutlookMail = Nothing
+    Set OutlookApp = Nothing
+
+End Sub
+

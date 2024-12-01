@@ -1,0 +1,153 @@
+Sub Clear()
+Range("B2:D26").ClearContents
+
+End Sub
+
+Sub SampleTest()
+    Dim SapGuiAuto As Object
+    Dim SAPApp As Object
+    Dim SAPCon As Object
+    Dim session As Object
+    Dim SAPGuiSession As Object
+    Set SapGuiAuto = GetObject("SAPGUI")
+    Set SAPApp = SapGuiAuto.GetScriptingEngine
+    Set SAPCon = SAPApp.Children(0)
+    Set session = SAPCon.Children(0)
+    
+Dim Ref1 As String
+Dim Ref2 As String
+Dim Ref3 As String
+Dim Ref4 As String
+Dim Ref5 As String
+Dim Ref6 As String
+Dim Ref7 As String
+Dim Ref8 As String
+Dim Ref9 As String
+Dim Ref10 As String
+Dim Ref11 As String
+Dim Ref12 As String
+Dim Ref13 As String
+Dim Ref14 As String
+Dim Ref15 As String
+Dim Ref16 As String
+Dim Ref17 As String
+Dim Ref18 As String
+Dim Ref19 As String
+Dim Ref20 As String
+Dim Ref21 As String
+Dim Ref22 As String
+Dim Ref23 As String
+Dim Ref24 As String
+Dim Ref25 As String
+Dim Ingest As String
+Dim WshShell As Object
+Set WshShell = CreateObject("WScript.Shell")
+
+
+Ref1 = ThisWorkbook.ActiveSheet.Range("B2").Value
+Ref2 = ThisWorkbook.ActiveSheet.Range("B3").Value
+Ref3 = ThisWorkbook.ActiveSheet.Range("B4").Value
+Ref4 = ThisWorkbook.ActiveSheet.Range("B5").Value
+Ref5 = ThisWorkbook.ActiveSheet.Range("B6").Value
+Ref6 = ThisWorkbook.ActiveSheet.Range("B7").Value
+Ref7 = ThisWorkbook.ActiveSheet.Range("B8").Value
+Ref8 = ThisWorkbook.ActiveSheet.Range("B9").Value
+Ref9 = ThisWorkbook.ActiveSheet.Range("B10").Value
+Ref10 = ThisWorkbook.ActiveSheet.Range("B11").Value
+Ref11 = ThisWorkbook.ActiveSheet.Range("B12").Value
+Ref12 = ThisWorkbook.ActiveSheet.Range("B13").Value
+Ref13 = ThisWorkbook.ActiveSheet.Range("B14").Value
+Ref14 = ThisWorkbook.ActiveSheet.Range("B15").Value
+Ref15 = ThisWorkbook.ActiveSheet.Range("B16").Value
+Ref16 = ThisWorkbook.ActiveSheet.Range("B17").Value
+Ref17 = ThisWorkbook.ActiveSheet.Range("B18").Value
+Ref18 = ThisWorkbook.ActiveSheet.Range("B19").Value
+Ref19 = ThisWorkbook.ActiveSheet.Range("B20").Value
+Ref20 = ThisWorkbook.ActiveSheet.Range("B21").Value
+Ref21 = ThisWorkbook.ActiveSheet.Range("B22").Value
+Ref22 = ThisWorkbook.ActiveSheet.Range("B23").Value
+Ref23 = ThisWorkbook.ActiveSheet.Range("B24").Value
+Ref24 = ThisWorkbook.ActiveSheet.Range("B25").Value
+Ref25 = ThisWorkbook.ActiveSheet.Range("B26").Value
+Ingest = ThisWorkbook.ActiveSheet.Range("A2").Value
+Range("C2:C27").ClearContents
+
+Dim i As Integer
+Dim refValue As String
+Dim resultCell As Range
+Dim refNote As String
+    Dim existingText As String
+    Dim modifiedText As String
+    Dim field As Object
+    
+For i = 1 To 25
+    ' Get the value from each Ref cell
+    refValue = ThisWorkbook.ActiveSheet.Range("B" & (i + 1)).Value
+    refNote = ThisWorkbook.ActiveSheet.Range("D" & (i + 1)).Value
+    ' Define the result cell for each Ref
+    Set resultCell = ThisWorkbook.ActiveSheet.Range("C" & (i + 1))
+    
+    If refValue <> "" Then
+        session.findById("wnd[0]/tbar[0]/btn[3]").press
+        session.findById("wnd[0]/tbar[0]/btn[3]").press
+        session.findById("wnd[0]/tbar[0]/btn[3]").press
+        session.findById("wnd[0]/tbar[0]/btn[3]").press
+        session.findById("wnd[0]/tbar[0]/btn[3]").press
+        session.findById("wnd[0]/tbar[0]/btn[3]").press
+        session.findById("wnd[0]/tbar[0]/btn[3]").press
+        session.findById("wnd[0]/tbar[0]/btn[3]").press
+        session.findById("wnd[0]/tbar[0]/okcd").Text = "FPE3"
+        session.findById("wnd[0]/tbar[0]/btn[0]").press
+        session.findById("wnd[0]/usr/ctxtRFPE1-OPBEL").Text = ""
+        session.findById("wnd[0]/usr/txtRFPE1-XBLNR").Text = refValue
+        session.findById("wnd[0]/usr/txtRFPE1-OPORD").Text = ""
+        session.findById("wnd[0]/tbar[0]/btn[0]").press
+        session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").selectedRows = "0"
+        session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell/shellcont[1]/shell").clickCurrentCell
+        session.findById("wnd[0]/titl/shellcont/shell").pressContextButton "%GOS_TOOLBOX"
+        session.findById("wnd[0]/titl/shellcont/shell").selectContextMenuItem "%GOS_PCATTA_CREA"
+        session.findById("wnd[1]/usr/ctxtDY_PATH").Text = WshShell.SpecialFolders("Desktop")
+        session.findById("wnd[1]/usr/ctxtDY_FILENAME").Text = Ingest
+        session.findById("wnd[1]/tbar[0]/btn[0]").press
+session.findById("wnd[0]/usr/tblSAPLFKPSCTRL_0705_OP/ctxtFPE3_OP-VKONT[4,0]").SetFocus
+session.findById("wnd[0]/usr/tblSAPLFKPSCTRL_0705_OP/ctxtFPE3_OP-VKONT[4,0]").caretPosition = 4
+session.findById("wnd[0]").sendVKey 2
+session.findById("wnd[0]/mbar/menu[0]/menu[3]").Select
+
+If refNote <> "" Then session.findById("wnd[0]/usr/tabsTABSTRIP-01/tabpTAB01/ssubTAB_OP:SAPLFKPS:0251/txtFKKOP-OPTXT").Text = refNote Else
+    ' Get the reference to the text field
+    Set field = session.findById("wnd[0]/usr/tabsTABSTRIP-01/tabpTAB01/ssubTAB_OP:SAPLFKPS:0251/txtFKKOP-OPTXT")
+    
+    ' Retrieve the existing text
+    existingText = field.Text
+    
+    ' Add the "@" symbol at position 1
+    modifiedText = "@" & existingText
+    
+    ' Set the modified text back to the field
+    field.Text = modifiedText
+End If
+
+session.findById("wnd[0]/tbar[0]/btn[11]").press
+
+
+
+      If refValue <> "" Then
+        resultCell.Value = "upload successful"
+    Else
+    If refValue <> "" Then resultCell.Value = "upload failed" Else resultCell.Value = ""
+    
+    End If
+Next i
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+session.findById("wnd[0]/tbar[0]/btn[3]").press
+
+MsgBox "Done"
+
+End Sub
